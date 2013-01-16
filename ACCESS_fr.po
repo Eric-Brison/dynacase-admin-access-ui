@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-16 16:10+0100\n"
+"POT-Creation-Date: 2013-01-22 17:05+0100\n"
 "PO-Revision-Date: 2013-01-16 16:10+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -19,177 +19,177 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid " Access Control for"
-msgstr ""
+msgstr "Contrôle des accès pour"
 
 msgid "Access"
-msgstr ""
+msgstr "Accessibilités"
 
 msgid "Account filter"
-msgstr ""
+msgstr "Rechercher un compte"
 
 msgid "Admin Access"
-msgstr ""
+msgstr "Accès administrateur"
 
 msgid "Application Access"
-msgstr ""
+msgstr "Accès des applications"
 
 msgid "Application filter"
-msgstr ""
+msgstr "Filtrer les applications"
 
 msgid "Cannot edit access. No application parameter."
 msgstr ""
+"Accès aux privilèges impossible : identifiant de l'application non définit."
 
 msgid "Cannot edit access. No user parameter."
 msgstr ""
+"Accès aux privilèges impossible : identifiant de l'utilisateur non définit."
 
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 msgid "Download access acl"
-msgstr ""
+msgstr "Télécharger la configuration des droits applicatifs"
 
 msgid "Edit any access"
-msgstr ""
+msgstr "Editer n'importe quel accès"
 
 msgid "Edit object access"
-msgstr ""
+msgstr "Editer les accès sur les objets"
 
 msgid "Edit object access by user"
-msgstr ""
+msgstr "Editer les accès sur les objets par utilisateur"
 
 msgid "Group"
-msgstr ""
+msgstr "Groupe"
 
 msgid "Group Access"
-msgstr ""
+msgstr "Accès des groupes"
 
 msgid "Import/Export"
-msgstr ""
+msgstr "Import/Export"
 
 msgid "Inherited grant"
-msgstr ""
+msgstr "Droits hérités"
 
 msgid "Modify access"
-msgstr ""
+msgstr "Modifier les droits d'accès"
 
 msgid "Modify any access"
-msgstr ""
+msgstr "Modifier n'importe quel objet"
 
 msgid "Modify object access"
-msgstr ""
+msgstr "Modifier certains objets"
 
 msgid "Negative grant"
-msgstr ""
+msgstr "Droits négatifs"
 
 msgid "No user found"
-msgstr ""
+msgstr "pas d'utilisateur trouvé"
 
 msgid "Positive grant"
-msgstr ""
+msgstr "Droits positifs"
 
 msgid "Result grant"
-msgstr ""
+msgstr "Droits résultants"
 
 msgid "Role"
-msgstr ""
+msgstr "Rôle"
 
 msgid "Role Access"
-msgstr ""
+msgstr "Accès des rôles"
 
 msgid "Search"
-msgstr ""
+msgstr "Recherche"
 
 msgid "Select Application Access"
-msgstr ""
+msgstr "Application"
 
 msgid "Select Group Access"
-msgstr ""
+msgstr "Groupe"
 
 msgid "Select Role Access"
-msgstr ""
+msgstr "Rôle"
 
 msgid "Select User Access"
-msgstr ""
+msgstr "Utilisateur"
 
 msgid "Upload access acl"
-msgstr ""
+msgstr "Importer un fichier de configuration de droits applicatifs"
 
 msgid "User"
-msgstr ""
+msgstr "Utilisateur"
 
 msgid "User Access"
-msgstr ""
+msgstr "Accès des utilisateurs"
 
 msgid "What Access Management"
-msgstr ""
+msgstr "Gestion des accessibilités"
 
 msgid "accessfor"
-msgstr ""
+msgstr "Contrôle des accès pour"
 
 #, php-format
 msgid "add acl %s for %s %s\n"
-msgstr ""
+msgstr "ajout privilège %s pour %s %s\n"
 
 msgid "appdesc"
-msgstr ""
+msgstr "Description"
 
 msgid "appname"
-msgstr ""
-
-#, php-format
-msgid "cannot write  %s"
-msgstr ""
+msgstr "Application"
 
 msgid "controlaccess"
-msgstr ""
-
-#, php-format
-msgid "csv file <%s> wroted"
-msgstr ""
+msgstr "Contrôle des accès"
 
 msgid "download"
-msgstr ""
+msgstr "Télécharger le fichier d'acces"
 
 msgid "filter on login and lastname"
-msgstr ""
+msgstr "filtre sur le login et le nom"
 
 msgid "modify"
-msgstr ""
+msgstr "Modifier"
 
 msgid "none"
-msgstr ""
+msgstr "Aucun"
 
 msgid "object"
-msgstr ""
+msgstr "objet"
 
 msgid "object control"
-msgstr ""
+msgstr "contrôle des objets"
 
 msgid "permissions"
-msgstr ""
+msgstr "Droits"
 
 msgid "print"
-msgstr ""
+msgstr "Impression de la page"
 
 msgid "upload"
-msgstr ""
+msgstr "Charger un fichier d'acces"
 
 #, php-format
 msgid "user %s %s has been added\n"
-msgstr ""
+msgstr "l'utilisateur %s %s a été ajouté\n"
 
 #, php-format
 msgid "user %s %s has been modified\n"
-msgstr ""
+msgstr "l'utilisateur %s %s a été modifié\n"
 
 msgid "userlogin"
-msgstr ""
+msgstr "Login"
 
 msgid "username"
-msgstr ""
+msgstr "Nom"
 
 msgid "viewgroup"
-msgstr ""
+msgstr "Voir les groupes"
 
 msgid "viewuser"
-msgstr ""
+msgstr "Voir les utilisateurs"
+
+#~ msgid "cannot write  %s"
+#~ msgstr "écriture impossible : %s"
+
+#~ msgid "csv file <%s> wroted"
+#~ msgstr "fichier csv <%s> écrit"
