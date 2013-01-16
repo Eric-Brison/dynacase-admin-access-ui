@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<module name="dynacase-admin-access-ui" disabled="no" version="3.2.5"
+    release="0">
+
+    <description>UI for managing ACLs.
+    </description>
+
+    <requires>
+        <module comp='ge' version='3.2.5' name='dynacase-core'/>
+        <module comp='ge' version='1.0.0' name='dynacase-admin'/>
+    </requires>
+
+    <post-install>
+        <process command="programs/record_application ACCESS I">
+            <label lang="en">Record access application in database</label>
+        </process>
+        <process
+        command="./wsh.php --api=importDocuments --file=./ACCESS/Data/Init.csv">
+          <label lang="en">Initializing ACCESS roles and ACLs</label>
+        </process>
+        <process command="programs/update_catalog" />
+    </post-install>
+
+    <post-upgrade>
+        <process command="programs/pre_migration ACCESS" />
+        <process command="programs/record_application ACCESS U">
+            <label lang="en">Update access application in database</label>
+        </process>
+        <process command="programs/post_migration ACCESS" />
+        <process command="programs/update_catalog" />
+    </post-upgrade>
+
+    <changelog>
+    </changelog>
+
+</module>

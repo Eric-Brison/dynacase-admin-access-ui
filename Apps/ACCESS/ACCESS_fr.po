@@ -1,0 +1,195 @@
+# French translations for dynacase-admin-uis package
+# Traductions françaises du paquet dynacase-admin-uis.
+# Copyright (C) 2013 THE dynacase-admin-uis'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the dynacase-admin-uis package.
+# Automatically generated, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dynacase-admin-uis\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-16 16:10+0100\n"
+"PO-Revision-Date: 2013-01-16 16:10+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid " Access Control for"
+msgstr ""
+
+msgid "Access"
+msgstr ""
+
+msgid "Account filter"
+msgstr ""
+
+msgid "Admin Access"
+msgstr ""
+
+msgid "Application Access"
+msgstr ""
+
+msgid "Application filter"
+msgstr ""
+
+msgid "Cannot edit access. No application parameter."
+msgstr ""
+
+msgid "Cannot edit access. No user parameter."
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Download access acl"
+msgstr ""
+
+msgid "Edit any access"
+msgstr ""
+
+msgid "Edit object access"
+msgstr ""
+
+msgid "Edit object access by user"
+msgstr ""
+
+msgid "Group"
+msgstr ""
+
+msgid "Group Access"
+msgstr ""
+
+msgid "Import/Export"
+msgstr ""
+
+msgid "Inherited grant"
+msgstr ""
+
+msgid "Modify access"
+msgstr ""
+
+msgid "Modify any access"
+msgstr ""
+
+msgid "Modify object access"
+msgstr ""
+
+msgid "Negative grant"
+msgstr ""
+
+msgid "No user found"
+msgstr ""
+
+msgid "Positive grant"
+msgstr ""
+
+msgid "Result grant"
+msgstr ""
+
+msgid "Role"
+msgstr ""
+
+msgid "Role Access"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Select Application Access"
+msgstr ""
+
+msgid "Select Group Access"
+msgstr ""
+
+msgid "Select Role Access"
+msgstr ""
+
+msgid "Select User Access"
+msgstr ""
+
+msgid "Upload access acl"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "User Access"
+msgstr ""
+
+msgid "What Access Management"
+msgstr ""
+
+msgid "accessfor"
+msgstr ""
+
+#, php-format
+msgid "add acl %s for %s %s\n"
+msgstr ""
+
+msgid "appdesc"
+msgstr ""
+
+msgid "appname"
+msgstr ""
+
+#, php-format
+msgid "cannot write  %s"
+msgstr ""
+
+msgid "controlaccess"
+msgstr ""
+
+#, php-format
+msgid "csv file <%s> wroted"
+msgstr ""
+
+msgid "download"
+msgstr ""
+
+msgid "filter on login and lastname"
+msgstr ""
+
+msgid "modify"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "object"
+msgstr ""
+
+msgid "object control"
+msgstr ""
+
+msgid "permissions"
+msgstr ""
+
+msgid "print"
+msgstr ""
+
+msgid "upload"
+msgstr ""
+
+#, php-format
+msgid "user %s %s has been added\n"
+msgstr ""
+
+#, php-format
+msgid "user %s %s has been modified\n"
+msgstr ""
+
+msgid "userlogin"
+msgstr ""
+
+msgid "username"
+msgstr ""
+
+msgid "viewgroup"
+msgstr ""
+
+msgid "viewuser"
+msgstr ""
