@@ -11,6 +11,9 @@
     </requires>
 
     <post-install>
+        <process command="programs/enable_ACCESS">
+            <label>Reactivate ACCESS application</label>
+        </process>
         <process command="programs/record_application ACCESS I">
             <label lang="en">Record access application in database</label>
         </process>
