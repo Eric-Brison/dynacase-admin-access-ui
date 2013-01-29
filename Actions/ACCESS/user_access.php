@@ -94,8 +94,6 @@ function user_access(Action & $action, $accountType = "U")
     
     $action->lay->set("hasuser", $u->id ? true : false);
     
-    $action->parent->AddJsRef("change_acl.js");
-    
     $action->register($varreg, $u->id);
     // 1) Get all application
     $query = new QueryGen($action->dbaccess, "Application", $action);

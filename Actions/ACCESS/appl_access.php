@@ -53,20 +53,18 @@ function appl_access(Action & $action, $oid = 0)
     $form = new SubForm("edit", 500, 330, "not used", $standurl . "app=ACCESS&action=EDIT&mod=app$paramedit");
     $form->SetParam("id", "-1");
     $form->SetKey("id");
-    
+
     $action->parent->AddJsRef($action->GetParam("CORE_JSURL") . "/subwindow.js");
     $action->parent->AddJsCode($form->GetMainJs());
     $jsscript = $form->GetLinkJsMainCall();
-    
+
     $action->lay->set("changeLabel", _("Select Application Access"));
     $action->lay->set("hasuser", true);
     // display application / object class
     $tab = array();
     if (!$appl_sel->isAffected()) $action->exitError(sprintf("application %s not found", $appl_id));
     $action->lay->set("displayName", $appl_sel->name);
-    $i = 0;
-    
-    $action->parent->AddJsRef("change_acl.js");
+
     // Init a querygen object to select users
     $query = new QueryGen($action->dbaccess, "Account", $action);
     //
@@ -85,7 +83,7 @@ function appl_access(Action & $action, $oid = 0)
         "shortname" => "login",
         "desc" => "lastname"
     );
-    
+
     $query->table->headcontent = array(
         "shortname" => _("userlogin") ,
         "desc" => _("username") ,
@@ -100,24 +98,22 @@ function appl_access(Action & $action, $oid = 0)
     // 2) Get all acl for all users
     reset($query->table->array);
     unset($tab);
-    
+
     $dr = new_doc($action->dbaccess, "ROLE");
     $du = new_doc($action->dbaccess, "IUSER");
     $dg = new_doc($action->dbaccess, "IGROUP");
     $drIcon = $dr->getIcon('', 18);
     $duIcon = $du->getIcon('', 18);
     $dgIcon = $dg->getIcon('', 18);
-    
+
     foreach ($query->table->array as $k => $v) {
         if (!isset($v["login"])) continue;
-        
+
         $uperm = new Permission($action->dbaccess, array(
             $v["id"],
             $appl_sel->id
         ));
-        
-        $name = $v["login"];
-        
+
         $tab = array();
         $aclids = $uperm->privileges;
         if (!$aclids) { // no privilege
@@ -125,10 +121,10 @@ function appl_access(Action & $action, $oid = 0)
                 0
             );
         }
-        
+
         foreach ($aclids as $k2 => $v2) {
             $tab[$k2]["aclid"] = $v2;
-            
+
             if ($v2 == 0) {
                 $tab[$k2]["aclname"] = $action->text("none");
             } else {
@@ -138,7 +134,7 @@ function appl_access(Action & $action, $oid = 0)
         }
         $action->lay->SetBlockData($v["id"], $tab);
         unset($tab);
-        
+
         $query->table->array[$k]["name"] = $v["login"];
         $query->table->array[$k]["selname"] = $v["id"];
         $query->table->array[$k]["id"] = $v["id"];
@@ -163,7 +159,7 @@ function appl_access(Action & $action, $oid = 0)
                 $query->table->array[$k]["imgaccess"] = "Images/access.gif";
         }
     }
-    
+
     $query->table->Set();
 }
 ?>
