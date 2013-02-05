@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<module name="dynacase-admin-access-ui" disabled="no" version="@VERSION_ACCESS@-@RELEASE_ACCESS@"
-    release="0">
+<module name="dynacase-admin-access-ui" disabled="no" version="@VERSION_ACCESS@"
+    release="@RELEASE_ACCESS@" license="@LICENSE@">
 
     <description>UI for managing ACLs.
     </description>
