@@ -10,7 +10,8 @@ $app_desc = array(
     "icon" => "access.png", //Icon
     "displayable" => "Y", //Should be displayed on an app list (Y,N)
     "iorder" => 10, // install order
-    "tag" => "ADMIN"
+    "tag" => "ADMIN",
+    "with_frame" => "Y"
 );
 
 $app_acl = array(
@@ -120,6 +121,46 @@ $action_desc = array(
         "name" => "EDIT_OBJECT",
         "acl" => "OBJECT",
         "short_name" => N_("Edit object access")
+    ),
+    array(
+        "name" => "GET_ACCOUNT",
+        "acl" => "ADMIN",
+        "toc" => "N",
+        "short_name" => N_("Get account"),
+        "function" => "accessGetAccounts",
+        "script" => "haccess.php"
+    ),
+    array(
+        "name" => "GET_APPS",
+        "acl" => "ADMIN",
+        "toc" => "N",
+        "short_name" => N_("Get application"),
+        "function" => "accessGetApps",
+        "script" => "haccess.php"
+    ),
+    array(
+        "name" => "GET_DATATABLE_INFO",
+        "acl" => "ADMIN",
+        "toc" => "N",
+        "short_name" => N_("Get datatable information"),
+        "function" => "accessGetDatatableInfo",
+        "script" => "haccess.php"
+    ),
+    array(
+        "name" => "USER_GET_DATATABLE_INFO",
+        "acl" => "ADMIN",
+        "toc" => "N",
+        "short_name" => N_("Get datatable information for User, group or role"),
+        "function" => "accessUserGetDatatableInfo",
+        "script" => "haccess.php"
+    ),
+    array(
+        "name" => "GET_ACCOUNTTYPES_IMAGE",
+        "acl" => "ADMIN",
+        "toc" => "N",
+        "short_name" => N_("Get accounttypes image"),
+        "function" => "accessGetAccounttypesImage",
+        "script" => "haccess.php"
     )
 );
 

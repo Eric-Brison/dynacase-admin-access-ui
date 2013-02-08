@@ -19,13 +19,8 @@
 // $Id: modify_object.php,v 1.6 2003/08/18 15:46:41 eric Exp $
 // $Source: /home/cvsroot/anakeen/freedom/core/Action/Access/modify_object.php,v $
 // ---------------------------------------------------------------
-include_once ("Class.QueryDb.php");
-include_once ("Class.Application.php");
-include_once ("Class.Acl.php");
-include_once ("Class.Permission.php");
-include_once ("Class.ObjectPermission.php");
 // -----------------------------------
-function modify_object(&$action)
+function modify_object(Action & $action)
 {
     // -----------------------------------
     // get all parameters

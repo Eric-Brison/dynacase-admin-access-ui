@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-22 17:05+0100\n"
+"POT-Creation-Date: 2013-02-08 15:12+0100\n"
 "PO-Revision-Date: 2013-01-16 16:10+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid " Access Control for"
@@ -28,6 +28,9 @@ msgid "Account filter"
 msgstr ""
 
 msgid "Admin Access"
+msgstr ""
+
+msgid "All"
 msgstr ""
 
 msgid "Application Access"
@@ -57,6 +60,21 @@ msgstr ""
 msgid "Edit object access by user"
 msgstr ""
 
+msgid "Get account"
+msgstr ""
+
+msgid "Get accounttypes image"
+msgstr ""
+
+msgid "Get application"
+msgstr ""
+
+msgid "Get datatable information"
+msgstr ""
+
+msgid "Get datatable information for User, group or role"
+msgstr ""
+
 msgid "Group"
 msgstr ""
 
@@ -81,7 +99,10 @@ msgstr ""
 msgid "Negative grant"
 msgstr ""
 
-msgid "No user found"
+msgid "No matching record found"
+msgstr ""
+
+msgid "No result"
 msgstr ""
 
 msgid "Positive grant"
@@ -96,9 +117,6 @@ msgstr ""
 msgid "Role Access"
 msgstr ""
 
-msgid "Search"
-msgstr ""
-
 msgid "Select Application Access"
 msgstr ""
 
@@ -109,6 +127,12 @@ msgid "Select Role Access"
 msgstr ""
 
 msgid "Select User Access"
+msgstr ""
+
+msgid "Show All Items"
+msgstr ""
+
+msgid "Showing _START_ to _END_ of _TOTAL_ "
 msgstr ""
 
 msgid "Upload access acl"
@@ -123,7 +147,16 @@ msgstr ""
 msgid "What Access Management"
 msgstr ""
 
+msgid "access:ADMIN_ACTIONS_LIST short_name"
+msgstr ""
+
+msgid "access:userlogin"
+msgstr ""
+
 msgid "accessfor"
+msgstr ""
+
+msgid "accounttype"
 msgstr ""
 
 #, php-format
@@ -142,10 +175,21 @@ msgstr ""
 msgid "download"
 msgstr ""
 
-msgid "filter on login and lastname"
+msgid "filter on accounttype"
+msgstr ""
+
+msgid "filter on lastname"
 msgstr ""
 
 msgid "modify"
+msgstr ""
+
+#, php-format
+msgid "no account match '%s'"
+msgstr ""
+
+#, php-format
+msgid "no application match '%s'"
 msgstr ""
 
 msgid "none"
@@ -160,9 +204,6 @@ msgstr ""
 msgid "permissions"
 msgstr ""
 
-msgid "print"
-msgstr ""
-
 msgid "upload"
 msgstr ""
 
@@ -172,9 +213,6 @@ msgstr ""
 
 #, php-format
 msgid "user %s %s has been modified\n"
-msgstr ""
-
-msgid "userlogin"
 msgstr ""
 
 msgid "username"

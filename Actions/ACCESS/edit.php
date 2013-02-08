@@ -20,47 +20,30 @@
 // $Source: /home/cvsroot/anakeen/freedom/core/Action/Access/edit.php,v $
 // ---------------------------------------------------------------
 // ---------------------------------------------------------------
-include_once ("Class.SubForm.php");
-include_once ("Class.User.php");
-include_once ("Class.ControlObject.php");
-include_once ("Class.ObjectPermission.php");
 // -----------------------------------
 function edit(Action & $action)
 {
     // -----------------------------------
-    $accountType = getHttpVars("accountType");
-    $isclass = (GetHttpVars("isclass") == "yes");
-    $coid = intval(GetHttpVars("oid"));
+    $accountType = $action->getArgument("accountType");
+    $coid = intval($action->getArgument("oid"));
     // the modification can come from action user_access or appl_access
-    if (GetHttpVars("mod") == "user") {
-        $appId = GetHttpVars("id");
-        $filteruser = getHttpVars("userfilter");
+    if ($action->getArgument("mod") == "user") {
+        $appId = $action->getArgument("id");
         if ($accountType == "G") {
-            $action->lay->Set("returnact", "GROUP_ACCESS&userfilter=$filteruser");
-            $userId = $action->Read("access_group_id");
+            $userId = $action->getArgument("access_group_id");
         } elseif ($accountType == "R") {
-            $action->lay->Set("returnact", "ROLE_ACCESS&userfilter=$filteruser");
-            $userId = $action->Read("access_role_id");
+            $userId = $action->getArgument("access_role_id");
         } else {
-            $action->lay->Set("returnact", "USER_ACCESS&userfilter=$filteruser"); // for return previous page
-            $userId = $action->Read("access_user_id");
+            $userId = $action->getArgument("access_user_id");
         }
     } else {
-        $userId = GetHttpVars("id");
-        if ($isclass) {
-            $appId = $action->Read("access_class_id");
-            $action->lay->Set("returnact", "OBJECT_ACCESS&oid=$coid"); // for return previous page
-            
-        } else {
-            $appId = $action->Read("access_appl_id");
-            $action->lay->Set("returnact", "APPL_ACCESS"); // for return previous page
-            
-        }
+        $userId = $action->getArgument("id");
+        $appId = $action->getArgument("access_appl_id");
     }
     $action->lay->Set("modifyact", "MODIFY");
     $action->lay->Set("target", "fbody");
     
-    if (($isclass) || ($coid > 0)) {
+    if (($coid > 0)) {
         // oid list for object class only
         $action->lay->SetBlockData("OBJECTCLASS", array(
             array(
@@ -90,19 +73,19 @@ function edit(Action & $action)
     edit_main($action, $userId, $appId, $coid);
 }
 // -----------------------------------
-function edit_oid(&$action)
+function edit_oid(Action & $action)
 {
     // -----------------------------------
-    $userId = intval(GetHttpVars("userid")); // can be affected by session var
-    $coid = intval(GetHttpVars("oid"));
-    $appId = GetHttpVars("appid");
+    $userId = intval($action->getArgument("userid")); // can be affected by session var
+    $coid = intval($action->getArgument("oid"));
+    $appId = $action->getArgument("appid");
     
     $action->lay->Set("modifyact", "MODIFY");
     $action->lay->Set("returnact", "OBJECT_ACCESS&oid=$coid&userid=$userId&appid=$appId"); //
     $action->lay->Set("target", "body");
     
-    if ($userId == 0) $userId = $action->Read("access_user_id");
-    if ($coid == 0) $coid = $action->Read("access_object_id");
+    if ($userId == 0) $userId = $action->getArgument("access_user_id");
+    if ($coid == 0) $coid = $action->getArgument("access_object_id");
     // user list for object modification
     $action->lay->SetBlockData("USERS", array(
         array(
@@ -130,15 +113,14 @@ function edit_main(Action & $action, $userId, $appId, $coid)
     // Get all the params
     if (!$appId) $action->exitError(_("Cannot edit access. No application parameter."));
     if (!$userId) $action->exitError(_("Cannot edit access. No user parameter."));
-    $isclass = (GetHttpVars("isclass") == "yes");
     //-------------------
     // contruct object id list
-    if (($isclass) || ($coid > 0)) {
+    if (($coid > 0)) {
         
         $octrl = new ControlObject();
         $toid = $octrl->GetOids($appId);
         $oids = array();
-        while (list($k, $v) = each($toid)) {
+        foreach ($toid as $k => $v) {
             
             if ($v->id_obj == $coid) $oids[$k]["selectedoid"] = "selected";
             else $oids[$k]["selectedoid"] = "";
@@ -151,7 +133,7 @@ function edit_main(Action & $action, $userId, $appId, $coid)
         $ouser = new Account();
         $tiduser = $ouser->GetUserAndGroupList();
         $userids = array();
-        while (list($k, $v) = each($tiduser)) {
+        foreach ($tiduser as $k => $v) {
             if ($v->id == 1) continue; // except admin : don't need privilege
             if ($v->id == $userId) $userids[$k]["selecteduser"] = "selected";
             else $userids[$k]["selecteduser"] = "";
@@ -166,7 +148,6 @@ function edit_main(Action & $action, $userId, $appId, $coid)
         $action->lay->Set("nbinput", 4);
     }
     
-    if (($isclass) && (!($coid > 0))) $coid = $oids[0]["oid"]; // get first if no selected
     $action->lay->Set("userid", $userId);
     $action->lay->Set("oid", $coid);
     $action->lay->Set("appid", $appId);
@@ -208,7 +189,7 @@ function edit_main(Action & $action, $userId, $appId, $coid)
     $appacls = $acl->getAclApplication($appId);
     
     $tableacl = array();
-    while (list($k, $v) = each($appacls)) {
+    foreach ($appacls as $k => $v) {
         
         $tableacl[$k]["aclname"] = $v->name;
         $tableacl[$k]["acldesc"] = " (" . _($v->description) . ")";

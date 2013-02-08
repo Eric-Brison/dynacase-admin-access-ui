@@ -19,29 +19,23 @@
 // $Id: modify.php,v 1.7 2007/02/14 15:13:16 eric Exp $
 // $Source: /home/cvsroot/anakeen/freedom/core/Action/Access/modify.php,v $
 // ---------------------------------------------------------------
-include_once ("Class.QueryDb.php");
-include_once ("Class.Application.php");
-include_once ("Class.Acl.php");
-include_once ("Class.Permission.php");
-include_once ("Class.ObjectPermission.php");
 // -----------------------------------
-function modify(&$action)
+function modify(Action & $action)
 {
     // -----------------------------------
-    $coid = GetHttpVars("oid"); // oid for controlled object
+    $coid = $action->getArgument("oid"); // oid for controlled object
     if ($coid > 0) modify_oid($action);
     else modify_app($action);
 }
 // -----------------------------------
-function modify_app(&$action)
+function modify_app(Action & $action)
 {
     // -----------------------------------
     // get all parameters
-    $userId = GetHttpVars("userid");
-    $appId = GetHttpVars("appid");
-    $aclp = GetHttpVars("aclup"); // ACL + (more access)
-    $acln = GetHttpVars("aclun"); // ACL - (less access)
-    $returnact = GetHttpVars("returnact");
+    $userId = $action->getArgument("userid");
+    $appId = $action->getArgument("appid");
+    $aclp = $action->getArgument("aclup"); // ACL + (more access)
+    $acln = $action->getArgument("aclun"); // ACL - (less access)
     // modif permission for a uncontrolled object
     $p = new Permission($action->dbaccess, array(
         $userId,
@@ -59,7 +53,7 @@ function modify_app(&$action)
     
     if (is_array($aclp)) {
         // create new permissions
-        while (list($k, $v) = each($aclp)) {
+        foreach ($aclp as $v) {
             $p->id_acl = $v;
             $p->computed = false;
             $p->Add();
@@ -68,7 +62,7 @@ function modify_app(&$action)
     
     if (is_array($acln)) {
         // create new permissions
-        while (list($k, $v) = each($acln)) {
+        foreach ($acln as $v) {
             $p->id_acl = - $v;
             $p->computed = false;
             $p->Add();
@@ -77,20 +71,24 @@ function modify_app(&$action)
     
     $action->parent->session->closeAll();
     $action->parent->session->set(""); // reset session to save current
-    if ($returnact == "") exit(0);
-    redirect($action, "ACCESS", $returnact . "&uid=" . $userId);
+    $action->lay->template = json_encode(array(
+        "success" => true
+    ));
+    $action->lay->noparse = true;
+    
+    header('Content-type: application/json');
 }
 // -----------------------------------
-function modify_oid(&$action)
+function modify_oid(Action & $action)
 {
     // -----------------------------------
     // get all parameters
-    $userId = GetHttpVars("userid");
-    $appId = GetHttpVars("appid");
-    $aclp = GetHttpVars("aclup"); // ACL + (more access)
-    $acln = GetHttpVars("aclun"); // ACL - (less access)
-    $coid = GetHttpVars("oid"); // oid for controlled object
-    $returnact = GetHttpVars("returnact");
+    $userId = $action->getArgument("userid");
+    $appId = $action->getArgument("appid");
+    $aclp = $action->getArgument("aclup"); // ACL + (more access)
+    $acln = $action->getArgument("aclun"); // ACL - (less access)
+    $coid = $action->getArgument("oid"); // oid for controlled object
+    $returnact = $action->getArgument("returnact");
     // test if current user could modify ACL
     $p = new ObjectPermission($action->dbaccess, array(
         $action->parent->user->id,

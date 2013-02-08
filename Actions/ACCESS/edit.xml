@@ -1,114 +1,4 @@
-<html>
-<head>
-
-<title>[TEXT:controlaccess]</title>
-
-<LINK REL="stylesheet" type="text/css" HREF="[CORE_SBASEURL]app=CORE&action=CORE_CSS" >
-[CSS:REF]
-   <style type="text/css">
-[CSS:CODE]
-       td.help {
-       cursor:help;
-       }
-   </style>
-[JS:REF]
-<script language="JavaScript">
-<!--
-[JS:CODE]
-var nbinput=[nbinput];
-
-function inhib(ckbut)
-{
- ckbut.checked = (! ckbut.checked);
-
- return true;
-}
-function computeglobacl(id)
-{
-  // compute final ACL
-  var idgroup = nbinput+ id*4;
-  var idplus  = idgroup+1;
-  var idmoins = idgroup+2;
-  var idglob = idgroup+3;
-
-  if (document.edit.elements[idmoins].checked) {
-    document.edit.elements[idglob].checked=false;
-  } else {     
-    if ((document.edit.elements[idgroup].checked) || 
-        (document.edit.elements[idplus].checked)) {
-      document.edit.elements[idglob].checked=true;
-    } else {
-      document.edit.elements[idglob].checked=false;
-    }
-  }
-    
-  
-}
-function globacl(id)
-{
-  var idgroup = nbinput+ id*4;
-  var idplus  = idgroup+1;
-  var idmoins = idgroup+2;
-  var idglob = idgroup+3;
-
-  if (document.edit.elements[idglob].checked) {
-     document.edit.elements[idmoins].checked=false;
-     if (! document.edit.elements[idgroup].checked) {
-        document.edit.elements[idplus].checked=true;
-     }
-  } else {
-     document.edit.elements[idplus].checked=false;
-     if (document.edit.elements[idgroup].checked) {
-        document.edit.elements[idmoins].checked=true;
-     }
-  }
-
-  return true;
-}
-function plusacl(id)
-{
-  var idgroup = nbinput+ id*4;
-  var idplus  = idgroup+1;
-  var idmoins = idgroup+2;
-  var idglob = idgroup+3;
-
-
-  if (document.edit.elements[idplus].checked) {
-     document.edit.elements[idmoins].checked=false;
-  }
-  computeglobacl(id);
-  return true;
-}
-function moinsacl(id)
-{
-  var idgroup = nbinput+ id*4;
-  var idplus  = idgroup+1;
-  var idmoins = idgroup+2;
-  var idglob = idgroup+3;
-
-  if (document.edit.elements[idmoins].checked)
-    document.edit.elements[idplus].checked=false;
-  computeglobacl(id);
-  return true;
-}
-function findtarget() {
-  if (document.edit) {
-    if (window.opener) {
-      var n=window.opener.name;
-      if (n) document.edit.target=n;
-    }
-  }
-}
-addEvent(window,"load",findtarget);
-//-->
-</script>
-
-</head>
-
-<body>
-
-<form target="[target]" name="edit" method="POST" action="[CORE_STANDURL]app=ACCESS&action=[modifyact]"
-      onsubmit="window.setTimeout('self.close()',2000);this.Modify.disabled=true">
+<form name="edit">
 
 <input type="hidden" name="appid" value="[appid]">
 <input type="hidden" name="returnact" value="[returnact]">
@@ -121,14 +11,14 @@ addEvent(window,"load",findtarget);
         <H5 style="text-align:center">[dboperm]</H5>
 
 
-<table cellspacing="0" cellpadding="0" width="100%" border="0">
+<table cellspacing="0" cellpadding="0" width="100%" border="0" class="ui-widget">
 
-<TR align="center">
-    <TD class="CORETblHeadCell help" title="[TEXT:Inherited grant]"><span class="CORETblHead">G</span></TD><TD class="CORETblHeadCell">&nbsp;</TD>
-    <TD class="CORETblHeadCell help" title="[TEXT:Positive grant]"><span class="CORETblHead">UP</span></TD><TD class="CORETblHeadCell">&nbsp;</TD>
-    <TD class="CORETblHeadCell help" title="[TEXT:Negative grant]"><span class="CORETblHead">UN</span></TD><TD class="CORETblHeadCell">&nbsp;</TD>
-    <TD class="CORETblHeadCell help" title="[TEXT:Result grant]"><span class="CORETblHead">R</span></TD><TD class="CORETblHeadCell">&nbsp;</TD>
-    <TD class="CORETblHeadCell" align="right">&nbsp;
+<TR align="center" class="ui-widget-header">
+    <TD class="help" title="[TEXT:Inherited grant]"><span >G</span></TD><TD>&nbsp;</TD>
+    <TD class="help" title="[TEXT:Positive grant]"><span >UP</span></TD><TD>&nbsp;</TD>
+    <TD class="help" title="[TEXT:Negative grant]"><span >UN</span></TD><TD>&nbsp;</TD>
+    <TD class="help" title="[TEXT:Result grant]"><span>R</span></TD><TD>&nbsp;</TD>
+    <TD align="right">&nbsp;
       [BLOCK USERS]
        <select name="suserid" onChange="document.location.href='[CORE_STANDURL]app=ACCESS&action=EDIT_OBJECT_USER&oid=[oid]&appid=[appid]&userid='+this.options[this.selectedIndex].value">
         [BLOCK USER]
@@ -145,7 +35,7 @@ addEvent(window,"load",findtarget);
 	</select>
       [ENDBLOCK OBJECTCLASS]
     </TD>
-  
+  <TD>&nbsp;</TD>
 <TR>
 
                                 [BLOCK SELECTACL]
@@ -169,12 +59,11 @@ addEvent(window,"load",findtarget);
 </TR>
                                 [ENDBLOCK SELECTACL]
 </TABLE>
-<BR>
-<p style="text-align:left">
-<input class="CORETblHead" type="submit" 
-         name="Modify" value="[TEXT:modify]"  >
-<input class="CORETblHead" type="reset" onClick="self.close()" name="Fermer" value="[TEXT:Close]">
-</p>
 </form>
-</body>
-</html>
+    <script language="JavaScript">
+    <!--
+    [JS:CODE]
+    var nbinput=[nbinput];
+
+    //-->
+    </script>

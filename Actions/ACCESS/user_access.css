@@ -1,0 +1,51 @@
+table.dataTable thead th {
+    cursor: auto;
+}
+a {
+    text-decoration: none;
+    color: #0088CC;
+}
+.DataTables_sort_icon {
+    float: left
+}
+.accounttypeimg {
+    text-align: center;
+}
+#header input {
+    width: 100%;
+}
+.access {
+    margin-bottom : 5px;
+}
+.ui-combobox {
+    position: relative;
+    display: inline-block;
+}
+
+.ui-combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+    /*height: 1.7em;
+     support: IE7
+    *top: 0.1em;*/
+}
+
+.ui-combobox-input {
+    margin: 0;
+    padding: 0.3em;
+}
+
+table.dataTable tr.odd {
+    background-color: #E6E6E8;
+}
+
+table.dataTable tr.odd td.sorting_1 {
+    background-color: #CBCBCB;
+}
+
+table.dataTable tr.even td.sorting_1 {
+    background-color: #E6E6E8;
+}
