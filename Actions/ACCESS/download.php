@@ -19,15 +19,10 @@
 // $Id: download.php,v 1.5 2003/08/18 15:46:41 eric Exp $
 // $Source: /home/cvsroot/anakeen/freedom/core/Action/Access/download.php,v $
 // ---------------------------------------------------------------
-include_once ("Class.QueryDb.php");
-include_once ("Class.Application.php");
-include_once ("Class.User.php");
-include_once ("Class.Acl.php");
-include_once ("Class.Permission.php");
 include_once ("Lib.Http.php");
 include_once ("FDL/freedom_util.php");
 // -----------------------------------
-function download(&$action)
+function download(Action & $action)
 {
     // -----------------------------------
     $dbaccess_freedom = $action->getParam('FREEDOM_DB');
@@ -106,11 +101,12 @@ function download(&$action)
     }
     @fclose($fp);
     
-    return Http_DownloadFile($tmpfile, "access.csv", "text/csv",
+    Http_DownloadFile($tmpfile, "access.csv", "text/csv",
     /*inline*/
     false, /*cache*/
     false, /*deleteafter*/
     true);
+    return "";
 }
 
 function getApplicationNameFromId($dbaccess, $id, &$cache = null)
@@ -162,8 +158,8 @@ function getAclNameFromId($dbaccess, $id, &$cache = null)
 function getUserFIDFromWID($dbaccess, $wid, &$cache)
 {
     if (is_array($cache) && array_key_exists('user_fid', $cache)) {
-        if (array_key_exists($id, $cache['user_fid'])) {
-            return $cache['user_fid'][$id];
+        if (array_key_exists($wid, $cache['user_fid'])) {
+            return $cache['user_fid'][$wid];
         }
     }
     

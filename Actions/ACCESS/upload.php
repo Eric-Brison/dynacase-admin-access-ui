@@ -19,14 +19,9 @@
 // $Id: upload.php,v 1.10 2004/03/22 15:21:40 eric Exp $
 // $Source: /home/cvsroot/anakeen/freedom/core/Action/Access/upload.php,v $
 // ---------------------------------------------------------------
-include_once ("Class.QueryDb.php");
-include_once ("Class.Application.php");
-include_once ("Class.User.php");
-include_once ("Class.Acl.php");
-include_once ("Class.Permission.php");
 include_once ("Lib.Http.php");
 // -----------------------------------
-function upload(&$action)
+function upload(Action & $action)
 {
     // -----------------------------------
     global $_FILES;
@@ -40,8 +35,7 @@ function upload(&$action)
     }
     $content = file($filename);
     
-    $tnewacl = array();
-    while (list($k, $v) = each($content)) {
+    foreach ($content as $v) {
         switch (substr($v, 0, 1)) {
             case "U":
                 changeuser($action, substr($v, 2));
@@ -87,7 +81,7 @@ function changeuser(&$action, $line, $verbose = false)
     $group = new Group($action->dbaccess, $use->id);
     if ($group->isAffected()) $group->delete(true);
     
-    while (list($kg, $gd) = each($groups)) {
+    foreach ($groups as $gd) {
         
         $gr = new Account($action->dbaccess);
         

@@ -28,7 +28,7 @@ function accessGetAccounts(Action & $action)
     }
     $sql = sprintf("select id, login, firstname, lastname, accounttype from users where $condaTs order by lastname LIMIT $limit");
     
-    simpleQuery(getDbAccess() , $sql, $result);
+    simpleQuery($action->dbaccess, $sql, $result);
     $t = array();
     
     foreach ($result as $aAccount) {
@@ -253,7 +253,6 @@ function accessUserGetDatatableInfo(Action & $action)
     $start = $start ? "offset " . $start : "";
     simpleQuery($action->dbaccess, sprintf("select distinct app.* from application as app, acl as acl WHERE app.id = acl.id_application %s order by %s %s", $where, $orderBy, $start) , $tab);
     // 2) Get all acl for all application
-    
     foreach ($tab as $v) {
         if (!isset($v["id"])) continue;
         $currentRow = array();

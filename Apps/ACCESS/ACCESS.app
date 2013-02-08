@@ -18,11 +18,7 @@ $app_acl = array(
     array(
         "name" => "ADMIN",
         "description" => N_("Admin Access"),
-        "admin" => TRUE),
-    array(
-        "name" => "OBJECT",
-        "description" => N_("object control"),
-        "group_default" => "Y"));
+        "admin" => TRUE));
 
 $action_desc = array(
     array(
@@ -56,14 +52,6 @@ $action_desc = array(
         "layout" => "user_access.xml"
     ),
     array(
-        "name" => "ACCESS_USER_CHG",
-        "acl" => "ADMIN"
-    ),
-    array(
-        "name" => "USER_PAGE",
-        "acl" => "ADMIN"
-    ),
-    array(
         "name" => "APPL_ACCESS",
         "toc" => "Y",
         "toc_order" => 1,
@@ -75,19 +63,6 @@ $action_desc = array(
         "name" => "MODIFY",
         "acl" => "ADMIN",
         "short_name" => N_("Modify any access")
-    ),
-    array(
-        "name" => "MODIFY_OBJECT",
-        "acl" => "OBJECT",
-        "short_name" => N_("Modify object access")
-    ),
-    array(
-        "name" => "ACCESS_APPL_CHG",
-        "acl" => "ADMIN"
-    ),
-    array(
-        "name" => "APPL_PAGE",
-        "acl" => "ADMIN"
     ),
     array(
         "name" => "DOWNLOAD",
@@ -108,19 +83,6 @@ $action_desc = array(
         "name" => "EDIT",
         "short_name" => N_("Edit any access"),
         "acl" => "ADMIN"
-    ),
-    array(
-        "name" => "EDIT_OBJECT_USER",
-        "acl" => "OBJECT",
-        "short_name" => N_("Edit object access by user"),
-        "function" => "edit_oid",
-        "layout" => "edit.xml",
-        "script" => "edit.php"
-    ),
-    array(
-        "name" => "EDIT_OBJECT",
-        "acl" => "OBJECT",
-        "short_name" => N_("Edit object access")
     ),
     array(
         "name" => "GET_ACCOUNT",
