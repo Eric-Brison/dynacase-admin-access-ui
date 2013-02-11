@@ -42,7 +42,10 @@ function accessGetAccounts(Action & $action)
             "value" => $aAccount["id"]
         );
     }
-    if ((count($t) == 0) && ($filterName != '')) return sprintf(_("no account match '%s'") , $filterName);
+    if ((count($t) == 0) && ($filterName != '')) $t[] = array(
+        "label" => sprintf(_("no account match '%s'") , $filterName) ,
+        "value" => 0
+    );
     $action->lay->template = json_encode($t);
     $action->lay->noparse = true;
     
@@ -58,7 +61,7 @@ function accessGetApps(Action & $action)
     
     if ($filterName) {
         $name = pg_escape_string(mb_strtolower($filterName));
-        $cond = sprintf("and (lower(app.name) ~'%s' or lower(app.short_name) ~ '%s' )", $name, $name);
+        $cond = sprintf(" and (lower(app.name) ~'%s' or lower(app.short_name) ~ '%s' )", $name, $name);
         $condaTs.= $cond;
     }
     $sql = sprintf("select app.id, app.name, app.short_name from application as app, acl as acl WHERE $condaTs group by app.id, app.name, app.short_name order by app.name LIMIT $limit");
@@ -72,7 +75,10 @@ function accessGetApps(Action & $action)
             "value" => $aAccount["id"]
         );
     }
-    if ((count($t) == 0) && ($filterName != '')) return sprintf(_("no application match '%s'") , $filterName);
+    if ((count($t) == 0) && ($filterName != '')) $t[] = array(
+        "label" => sprintf(_("no application match '%s'") , $filterName) ,
+        "value" => 0
+    );
     $action->lay->template = json_encode($t);
     $action->lay->noparse = true;
     
@@ -213,83 +219,87 @@ function accessUserGetDatatableInfo(Action & $action)
     $user_id = trim($action->getArgument("user_id"));
     $user_sel = new Account();
     $user_sel->Select($user_id);
-    
-    if ($accountType == "G") {
-        $varreg = "access_group_id";
-    } elseif ($accountType == "R") {
-        $varreg = "access_role_id";
+    if (!$user_sel->id) {
+        $out["errors"] = sprintf("account %s not found", $user_id);
+        $out["iTotalRecords"] = 0;
     } else {
-        $varreg = "access_user_id";
-    }
-    $jsscript = "displaySubWindow(330, 500, '" . $standurl . "app=ACCESS&action=EDIT&mod=user&accountType=$accountType&id=[id]&$varreg=" . $user_sel->id . "', '" . _("controlaccess") . "', urgDatatable)";
-    // 1) Get all application
-    $tab = array();
-    
-    $sortSearch = '';
-    $orderBy = "";
-    $where = "";
-    $sortArg = $action->getArgument(sprintf("iSortCol_%d", 0) , null);
-    if ($sortArg !== null) {
-        if ($sortArg === "1") {
-            $sortSearch = "app.description";
+        if ($accountType == "G") {
+            $varreg = "access_group_id";
+        } elseif ($accountType == "R") {
+            $varreg = "access_role_id";
+        } else {
+            $varreg = "access_user_id";
         }
-        $orderBy = $action->getArgument(sprintf("sSortDir_%d", 0));
-    }
-    if ($sortSearch) {
-        $orderBy = $sortSearch . " " . $orderBy;
-    } else {
-        $orderBy = 'app.name' . " " . $orderBy;
-    }
-    for ($index = 0; $index < $action->getArgument('iColumns'); $index++) {
-        $search = $action->getArgument('sSearch_' . $index);
-        if ($search) {
-            $field = $action->getArgument('mDataProp_' . $index);
-            if ($field == "name") {
-                $where.= sprintf("and %s ~* '%s'", "app.name", pg_escape_string($search));
+        $jsscript = "displaySubWindow(330, 500, '" . $standurl . "app=ACCESS&action=EDIT&mod=user&accountType=$accountType&id=[id]&$varreg=" . $user_sel->id . "', '" . _("controlaccess") . "', urgDatatable)";
+        // 1) Get all application
+        $tab = array();
+        
+        $sortSearch = '';
+        $orderBy = "";
+        $where = "";
+        $sortArg = $action->getArgument(sprintf("iSortCol_%d", 0) , null);
+        if ($sortArg !== null) {
+            if ($sortArg === "1") {
+                $sortSearch = "app.description";
             }
-            $filter++;
+            $orderBy = $action->getArgument(sprintf("sSortDir_%d", 0));
         }
-    }
-    $start = $start ? "offset " . $start : "";
-    simpleQuery($action->dbaccess, sprintf("select distinct app.* from application as app, acl as acl WHERE app.id = acl.id_application %s order by %s %s", $where, $orderBy, $start) , $tab);
-    // 2) Get all acl for all application
-    foreach ($tab as $v) {
-        if (!isset($v["id"])) continue;
-        $currentRow = array();
-        // get user permissions
-        $uperm = new Permission($action->dbaccess, array(
-            $user_sel->id,
-            $v["id"]
-        ));
-        
-        $acltab = "";
-        
-        $aclids = $uperm->privileges;
-        if (!$aclids) { // no privilege
-            $aclids = array(
-                0
-            );
+        if ($sortSearch) {
+            $orderBy = $sortSearch . " " . $orderBy;
+        } else {
+            $orderBy = 'app.name' . " " . $orderBy;
         }
-        foreach ($aclids as $v2) {
-            if ($v2 == 0) {
-                $acltab.= _("none");
-            } else {
-                $acl = new Acl($action->dbaccess, $v2);
-                if ($acltab != "" && $acl->name) $acltab.= ", ";
-                $acltab.= $acl->name;
+        for ($index = 0; $index < $action->getArgument('iColumns'); $index++) {
+            $search = $action->getArgument('sSearch_' . $index);
+            if ($search) {
+                $field = $action->getArgument('mDataProp_' . $index);
+                if ($field == "name") {
+                    $where.= sprintf("and %s ~* '%s'", "app.name", pg_escape_string($search));
+                }
+                $filter++;
             }
         }
-        $currentRow["aclname"] = $acltab;
-        $currentRow["name"] = $v["name"];
-        
-        $currentRow["selname"] = $v["name"];
-        $currentRow["id"] = $v["id"];
-        $currentRow["description"] = _($v["description"]);
-        $currentRow["edit"] = str_replace("[id]", $v["id"], $jsscript);
-        $currentRow["imgaccess"] = $action->parent->getImageLink($v["icon"], true, 18);
-        $data[] = $currentRow;
+        $start = $start ? "offset " . $start : "";
+        simpleQuery($action->dbaccess, sprintf("select distinct app.* from application as app, acl as acl WHERE app.id = acl.id_application %s order by %s %s", $where, $orderBy, $start) , $tab);
+        // 2) Get all acl for all application
+        foreach ($tab as $v) {
+            if (!isset($v["id"])) continue;
+            $currentRow = array();
+            // get user permissions
+            $uperm = new Permission($action->dbaccess, array(
+                $user_sel->id,
+                $v["id"]
+            ));
+            
+            $acltab = "";
+            
+            $aclids = $uperm->privileges;
+            if (!$aclids) { // no privilege
+                $aclids = array(
+                    0
+                );
+            }
+            foreach ($aclids as $v2) {
+                if ($v2 == 0) {
+                    $acltab.= _("none");
+                } else {
+                    $acl = new Acl($action->dbaccess, $v2);
+                    if ($acltab != "" && $acl->name) $acltab.= ", ";
+                    $acltab.= $acl->name;
+                }
+            }
+            $currentRow["aclname"] = $acltab;
+            $currentRow["name"] = $v["name"];
+            
+            $currentRow["selname"] = $v["name"];
+            $currentRow["id"] = $v["id"];
+            $currentRow["description"] = _($v["description"]);
+            $currentRow["edit"] = str_replace("[id]", $v["id"], $jsscript);
+            $currentRow["imgaccess"] = $action->parent->getImageLink($v["icon"], true, 18);
+            $data[] = $currentRow;
+        }
+        $out["iTotalRecords"] = count($tab);
     }
-    $out["iTotalRecords"] = count($tab);
     //Adding and sending info
     if ($filter == 0) $out["iTotalDisplayRecords"] = $out["iTotalRecords"];
     else $out["iTotalDisplayRecords"] = $action->getArgument('totalSearch');
@@ -324,7 +334,8 @@ function getAccounttypesImage(Action & $action)
         array(
             "value" => "",
             "imgsrc" => $action->parent->getImageLink("access.gif", true, 18) ,
-            "label" => _("All")
+            "label" => _("All") ,
+            "imgclass" => "ui-icon-empty"
         )
     );
 }

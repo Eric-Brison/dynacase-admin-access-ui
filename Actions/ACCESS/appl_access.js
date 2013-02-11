@@ -1,6 +1,5 @@
 $(function () {
     var cache = {};
-
     /**
      * Autocomplete for application
      */
@@ -46,7 +45,7 @@ $(function () {
                 });
             },
             select:function (event, ui) {
-                $(this).html('<img src="' + ui.item.imgsrc + '" />');
+                $(this).html('<img src="' + ui.item.imgsrc + '" class="'+ui.item.imgclass+'"/>');
                 $("#accounttypeValue").val(ui.item.value);
                 appDatatable.fnDraw();
                 return false;
@@ -61,8 +60,8 @@ $(function () {
         {
             "aTargets":['accounttype'],
             "mDataProp":"imgaccess",
-            "sWidth":"45px",
-            "sClass":"accounttypeimg",
+            "sWidth":"55px",
+            "sClass":"accounttypeimg ui-corner-tl",
             fnRender:function (data) {
                 return '<a class="access" title="'+"[TEXT:Modify access]"+'" onclick="' + data.aData.edit + '" href="#"><img src="' + data.aData.imgaccess + '"></a> ';
             }
@@ -83,14 +82,15 @@ $(function () {
         {
             "aTargets":['third_column'],
             "mDataProp":"aclname",
+             "sClass":"ui-corner-tr",
             "bSortable":false,
             "bSearchable":false
         }
     ], function (aoData) {
         var oSettings = this.fnSettings();
         $("#header").find("th").each(function (i) {
-            var value = $(this).children(0).val();
-            if ($(this).children(0).is(".ui-combobox")) {
+            var value = $(this).find("input").val();
+            if ($(this).children(0).find(".ui-combobox").length > 0) {
                 value = $("#accounttypeValue").val();
             }
             aoData = addFieldToData(aoData, 'sSearch_' + i, value);

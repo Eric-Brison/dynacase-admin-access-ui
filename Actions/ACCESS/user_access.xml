@@ -25,7 +25,7 @@
                     [ENDIF URG]
                     [IFNOT URG]
                     <input type="hidden" id="accounttypeValue"
-                                             value="[valueaccounttype]"/>
+                           value="[valueaccounttype]"/>
                     <input type="text" id="[idAURG]" value="[valueAURG]"/>
                     [ENDIF URG]
                 </td>
@@ -35,44 +35,31 @@
         <table border="0" cellspacing="0" cellpadding="0" width="[CORE_FULLWIDTH]"
                id="dataTable">
             <thead>
-                <!-- TABLESEARCH -->
-                <tr id="header">
+                <!-- /TABLESEARCH -->
+                <!-- TABLEHEAD -->
+                <tr class="aclhead" id="header">
                     [IFNOT URG]
-                    <th class="ui-widget-header">
+                    <th class="accounttype">
                         <button title="[TEXT:filter on accounttype]"
                                 name="accounttype" id="accounttype">
-                            <img src="[imgaccounttype]"/>
+                            <img src="[imgaccounttype]" class="ui-icon-empty"/>
                         </button>
                     </th>
                     [ENDIF URG]
-                    <th class="ui-widget-header">
-                        <input placeholder="[placeholder]"
+                    <th class="first_column">
+                        <input placeholder="[shortname]"
                                title="[placeholder]"
                                name="name"/>
                     </th>
-                    <th class="ui-widget-header">
+                    <th class="second_column">
                         [IFNOT URG]
-                        <input placeholder="[TEXT:filter on lastname]"
+                        <input placeholder="[desc]"
                                title="[TEXT:filter on lastname]"
                                name="description"/>
                         [ENDIF URG]
-                    </th>
-                    <th class="ui-widget-header">
-                    </th>
-                </tr>
-                <!-- /TABLESEARCH -->
-                <!-- TABLEHEAD -->
-                <tr class="aclhead">
-                    [IFNOT URG]
-                    <th class="accounttype">
-                        <span class="CORETblBold">[accounttypelabel]</span>
-                    </th>
-                    [ENDIF URG]
-                    <th class="first_column">
-                        <span class="CORETblBold">[shortname]</span>
-                    </th>
-                    <th class="second_column">
+                        [IF URG]
                         <span class="CORETblBold">[desc]</span>
+                        [ENDIF URG]
                     </th>
                     <th class="third_column">
                         <span class="CORETblBold">[permission]</span>

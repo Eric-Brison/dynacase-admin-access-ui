@@ -88,11 +88,16 @@ function user_access(Action & $action, $accountType = "U")
     }
     // select the first user if not set
     if ($user_id == "") {
-        simpleQuery($action->dbaccess, sprintf("select id from users where accounttype='%s' order by id limit 1", pg_escape_string($accountType)) , $user_id, true, true);
+        simpleQuery($action->dbaccess, sprintf("select id from users where accounttype='%s' and id != 1 order by id limit 1", pg_escape_string($accountType)) , $user_id, true, true);
     }
     
     $u->select($user_id);
-    $action->lay->set("valueAURG", $u->getDisplayName($user_id));
+    if ($accountType == "U") {
+        $value = trim(sprintf("%s %s (%s)", $u->lastname, $u->firstname, $u->login));
+    } else {
+        $value = $dn = trim(sprintf("%s %s", $u->lastname, $u->firstname));
+    }
+    $action->lay->set("valueAURG", $value);
     $action->lay->set("valueidAURG", $user_id);
     
     $action->lay->set("hasuser", $u->id ? true : false);

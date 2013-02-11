@@ -5,17 +5,24 @@ a {
     text-decoration: none;
     color: #0088CC;
 }
+.imgaccess{
+    vertical-align: middle;
+}
 .DataTables_sort_icon {
-    float: left
+    float: left;
+    margin-top: 5px;
 }
 .accounttypeimg {
     text-align: center;
 }
 #header input {
-    width: 100%;
+    width: 90%;
 }
 .access {
     margin-bottom : 5px;
+}
+.ui-icon-empty{
+    visibility: hidden;
 }
 .ui-combobox {
     position: relative;

@@ -24,7 +24,7 @@
                 .addClass("ui-state-default ui-combobox-input")
                 .autocomplete(this.options.autocomplete)
                 .addClass("ui-widget ui-widget-content ui-corner-left")
-                .on("focusout", function() {
+                .on("focusout", function () {
                     var oldValue = $(this).attr("data-old-value");
                     if (oldValue) {
                         $(this).val(oldValue);
@@ -33,21 +33,24 @@
                 });
             if (this.options.mode == "button") {
                 input.html(select.html());
-                input.on("click",function (event, ui) {
-                    if (wasOpen) {
-                        $(this).autocomplete("close");
-                        return;
-                    }
-                    $(this).autocomplete("search");
-                }).on("mousedown",function () {
+                input.on({
+                    "click":function (event, ui) {
+                        if (wasOpen) {
+                            $(this).autocomplete("close");
+                            return false;
+                        }
+                        $(this).autocomplete("search");
+                        return false;
+                    },
+                    "mousedown":function () {
                         wasOpen = input.autocomplete("widget").is(":visible");
-                    }).css("cursor", "pointer");
+                    }}).css("cursor", "pointer");
             }
 
             input.data("autocomplete")._renderItem = function (ul, item) {
                 var html = "<a>";
                 if (item.imgsrc) {
-                    html += '<img title="' + item.label + '" src="' + item.imgsrc + '"/>';
+                    html += '<img title="' + item.label + '" src="' + item.imgsrc + '" class="'+item.imgclass+'"/>';
                 } else {
                     html += item.label
                 }
@@ -70,19 +73,21 @@
                     })
                     .removeClass("ui-corner-all")
                     .addClass("ui-corner-right ui-combobox-toggle")
-                    .mousedown(function () {
-                        wasOpen = input.autocomplete("widget").is(":visible");
-                    })
-                    .click(function () {
-                        input.attr("data-old-value", input.val());
-                        input.focus();
+                    .on({
+                        "mousedown":function () {
+                            wasOpen = input.autocomplete("widget").is(":visible");
+                        },
+                        "click":function () {
+                            input.attr("data-old-value", input.val());
+                            input.focus();
 // close if already visible
-                        if (wasOpen) {
-                            return;
-                        }
-                        input.val("");
+                            if (wasOpen) {
+                                return;
+                            }
+                            input.val("");
 // pass empty string as value to search for, displaying all results
-                        input.autocomplete("search");
+                            input.autocomplete("search");
+                        }
                     });
             }
             select.remove();
@@ -118,6 +123,7 @@ function createDatatable(id, url, sortColumn, displayLength, colomDef, fnServerP
         bServerSide:true,
         bJQueryUI:true,
         bProcessing:true,
+        bPaginate:displayLength ? true : false,
         iDisplayLength:displayLength,
         sAjaxSource:url,
         bDeferRender:true,
@@ -186,16 +192,24 @@ function displaySubWindow(height, width, ref, title, datatable) {
 
 function findSearchString($elements, fields, dataTable) {
     $elements.each(function (index, element) {
-        $(element).keypress(function (e) {
-            if (e.keyCode == 13) {
-                var index = $.inArray(this.name, fields);
-                if (index == -1) {
-                    /* Filter on all columns  of this element */
-                    dataTable.fnFilter(this.value);
-                } else {
-                    /* Filter on column (index) of this element */
-                    dataTable.fnFilter(this.value, index);
+        $(element).on({
+            "keypress":function (e) {
+                if (e.keyCode == 13) {
+                    var index = $.inArray(this.name, fields);
+                    if (index == -1) {
+                        /* Filter on all columns  of this element */
+                        dataTable.fnFilter(this.value);
+                    } else {
+                        /* Filter on column (index) of this element */
+                        dataTable.fnFilter(this.value, index);
+                    }
+                    return false;
                 }
+                return true;
+            },
+            "click":function (e) {
+                //Prevent bubbling event
+                return false;
             }
         });
     });
