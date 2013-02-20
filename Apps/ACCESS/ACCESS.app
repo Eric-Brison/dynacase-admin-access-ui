@@ -10,7 +10,7 @@ $app_desc = array(
     "icon" => "access.png", //Icon
     "displayable" => "Y", //Should be displayed on an app list (Y,N)
     "iorder" => 10, // install order
-    "tag" => "ADMIN",
+    "tag" => "ADMIN SYSTEM",
     "with_frame" => "Y"
 );
 
