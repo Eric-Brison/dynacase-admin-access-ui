@@ -15,7 +15,7 @@ include_once "FDL/freedom_util.php";
  */
 function accessGetAccounts(Action & $action)
 {
-    $limit = 20;
+    $limit = 25;
     $accountType = $action->getArgument("accountType");
     $filterName = $action->getArgument("filterName");
     

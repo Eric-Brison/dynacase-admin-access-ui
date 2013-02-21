@@ -47,15 +47,21 @@
                     </th>
                     [ENDIF URG]
                     <th class="first_column">
-                        <input placeholder="[shortname]"
-                               title="[placeholder]"
-                               name="name"/>
+                        <div class="search">
+                            <span class="ui-icon ui-icon-search"></span>
+                            <input class="searchField" placeholder="[shortname]"
+                                   title="[placeholder]"
+                                   name="name"/>
+                        </div>
                     </th>
                     <th class="second_column">
                         [IFNOT URG]
-                        <input placeholder="[desc]"
-                               title="[TEXT:filter on lastname]"
-                               name="description"/>
+                        <div class="search">
+                            <span class="ui-icon ui-icon-search"></span>
+                            <input class="searchField" placeholder="[desc]"
+                                   title="[TEXT:filter on lastname]"
+                                   name="description"/>
+                        </div>
                         [ENDIF URG]
                         [IF URG]
                         <span class="CORETblBold">[desc]</span>
