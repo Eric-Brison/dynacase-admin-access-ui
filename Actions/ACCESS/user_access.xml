@@ -42,7 +42,7 @@
                     <th class="accounttype">
                         <button title="[TEXT:filter on accounttype]"
                                 name="accounttype" id="accounttype">
-                            <img src="[imgaccounttype]" class="ui-icon-empty"/>
+                            <span class="ui-icon ui-icon-radio-on"><img src="[imgaccounttype]" class="ui-icon-empty"/></span>
                         </button>
                     </th>
                     [ENDIF URG]

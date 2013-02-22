@@ -45,7 +45,12 @@ $(function () {
                 });
             },
             select:function (event, ui) {
-                $(this).html('<img src="' + ui.item.imgsrc + '" class="'+ui.item.imgclass+'"/>');
+                if (!ui.item.imgclass) {
+                    $(this).html('<img src="' + ui.item.imgsrc + '" />');
+                } else {
+                    $(this).html('<span class="'+ui.item.imgclass+'"><img src="' + ui.item.imgsrc + '" class="ui-icon-empty"/></span>')
+                }
+
                 $("#accounttypeValue").val(ui.item.value);
                 appDatatable.fnDraw();
                 return false;

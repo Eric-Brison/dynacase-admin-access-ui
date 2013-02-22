@@ -44,13 +44,18 @@
                     },
                     "mousedown":function () {
                         wasOpen = input.autocomplete("widget").is(":visible");
-                    }}).css("cursor", "pointer");
+                    }}).css("cursor", "pointer").removeClass("ui-corner-left").addClass("ui-corner-all");
             }
 
             input.data("autocomplete")._renderItem = function (ul, item) {
                 var html = "<a>";
                 if (item.imgsrc) {
-                    html += '<img title="' + item.label + '" src="' + item.imgsrc + '" class="'+item.imgclass+'"/>';
+                    if (!item.imgclass) {
+                        html += '<img title="' + item.label + '" src="' + item.imgsrc + '"/>';
+                    } else {
+                        html += '<span class="' + item.imgclass + '"><img src="' + item.imgsrc + '" class="ui-icon-empty"/></span>';
+                    }
+
                 } else {
                     html += item.label
                 }

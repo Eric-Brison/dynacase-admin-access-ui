@@ -335,7 +335,7 @@ function getAccounttypesImage(Action & $action)
             "value" => "",
             "imgsrc" => $action->parent->getImageLink("access.gif", true, 18) ,
             "label" => _("All") ,
-            "imgclass" => "ui-icon-empty"
+            "imgclass" => "ui-icon ui-icon-radio-on"
         )
     );
 }
