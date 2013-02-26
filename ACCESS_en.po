@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-08 17:35+0100\n"
+"POT-Creation-Date: 2013-02-26 12:13+0100\n"
 "PO-Revision-Date: 2013-01-16 16:10+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,208 +18,260 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-msgid " Access Control for"
+#: tempCatalog.php:22
+msgid " Processing"
 msgstr ""
 
+#: Apps/ACCESS/ACCESS.app:7
 msgid "Access"
 msgstr ""
 
+#: Actions/ACCESS/appl_access.php:70
 msgid "Account filter"
 msgstr ""
 
+#: Apps/ACCESS/ACCESS.app:20
 msgid "Admin Access"
 msgstr ""
 
+#: Apps/ACCESS/haccess.php:337
 msgid "All"
 msgstr ""
 
+#: Apps/ACCESS/ACCESS.app:60
 msgid "Application Access"
 msgstr ""
 
+#: Actions/ACCESS/user_access.php:74
 msgid "Application filter"
 msgstr ""
 
+#: Actions/ACCESS/edit.php:71
 msgid "Cannot edit access. No application parameter."
 msgstr ""
 
+#: Actions/ACCESS/edit.php:72
 msgid "Cannot edit access. No user parameter."
 msgstr ""
 
+#: tempCatalog.php:24 tempCatalog.php:25
 msgid "Close"
 msgstr ""
 
+#: tempCatalog.php:9
 msgid "Download access acl"
 msgstr ""
 
+#: Apps/ACCESS/ACCESS.app:84
 msgid "Edit any access"
 msgstr ""
 
-msgid "Edit object access"
-msgstr ""
-
-msgid "Edit object access by user"
-msgstr ""
-
+#: Apps/ACCESS/ACCESS.app:91
 msgid "Get account"
 msgstr ""
 
+#: Apps/ACCESS/ACCESS.app:123
 msgid "Get accounttypes image"
 msgstr ""
 
+#: Apps/ACCESS/ACCESS.app:99
 msgid "Get application"
 msgstr ""
 
+#: Apps/ACCESS/ACCESS.app:107
 msgid "Get datatable information"
 msgstr ""
 
+#: Apps/ACCESS/ACCESS.app:115
 msgid "Get datatable information for User, group or role"
 msgstr ""
 
+#: Actions/ACCESS/edit.php:52
 msgid "Group"
 msgstr ""
 
+#: Apps/ACCESS/ACCESS.app:41
 msgid "Group Access"
 msgstr ""
 
+#: Apps/ACCESS/ACCESS.app:80
 msgid "Import/Export"
 msgstr ""
 
+#: tempCatalog.php:2
 msgid "Inherited grant"
 msgstr ""
 
+#: tempCatalog.php:16 tempCatalog.php:17 tempCatalog.php:26
 msgid "Modify access"
 msgstr ""
 
+#: Apps/ACCESS/ACCESS.app:65
 msgid "Modify any access"
 msgstr ""
 
-msgid "Modify object access"
-msgstr ""
-
+#: tempCatalog.php:4
 msgid "Negative grant"
 msgstr ""
 
+#: tempCatalog.php:19
 msgid "No matching record found"
 msgstr ""
 
+#: tempCatalog.php:21
 msgid "No result"
 msgstr ""
 
+#: tempCatalog.php:3
 msgid "Positive grant"
 msgstr ""
 
+#: tempCatalog.php:5
 msgid "Result grant"
 msgstr ""
 
+#: Actions/ACCESS/edit.php:56
 msgid "Role"
 msgstr ""
 
+#: Apps/ACCESS/ACCESS.app:51
 msgid "Role Access"
 msgstr ""
 
+#: Actions/ACCESS/appl_access.php:66
 msgid "Select Application Access"
 msgstr ""
 
+#: Actions/ACCESS/user_access.php:83
 msgid "Select Group Access"
 msgstr ""
 
+#: Actions/ACCESS/user_access.php:85
 msgid "Select Role Access"
 msgstr ""
 
+#: Actions/ACCESS/user_access.php:87
 msgid "Select User Access"
 msgstr ""
 
+#: tempCatalog.php:18
 msgid "Show All Items"
 msgstr ""
 
+#: tempCatalog.php:20
 msgid "Showing _START_ to _END_ of _TOTAL_ "
 msgstr ""
 
+#: tempCatalog.php:13
 msgid "Upload access acl"
 msgstr ""
 
+#: Actions/ACCESS/edit.php:48
 msgid "User"
 msgstr ""
 
+#: Apps/ACCESS/ACCESS.app:33
 msgid "User Access"
 msgstr ""
 
+#: Apps/ACCESS/ACCESS.app:8
 msgid "What Access Management"
 msgstr ""
 
+#: Apps/ACCESS/ACCESS.app:26
 msgid "access:ADMIN_ACTIONS_LIST short_name"
 msgstr ""
 
+#: Actions/ACCESS/appl_access.php:67
 msgid "access:userlogin"
 msgstr ""
 
+#: tempCatalog.php:1
 msgid "accessfor"
 msgstr ""
 
+#: Actions/ACCESS/appl_access.php:71
 msgid "accounttype"
 msgstr ""
 
-#, php-format
+#: Actions/ACCESS/upload.php:154
+#, c-format
 msgid "add acl %s for %s %s\n"
 msgstr ""
 
+#: Actions/ACCESS/user_access.php:72
 msgid "appdesc"
 msgstr ""
 
+#: Actions/ACCESS/user_access.php:71
 msgid "appname"
 msgstr ""
 
+#: Apps/ACCESS/haccess.php:110 Apps/ACCESS/haccess.php:233
 msgid "controlaccess"
 msgstr ""
 
+#: Apps/ACCESS/haccess.php:296
+msgid "description"
+msgstr ""
+
+#: tempCatalog.php:6 tempCatalog.php:7
 msgid "download"
 msgstr ""
 
+#: tempCatalog.php:14
 msgid "filter on accounttype"
 msgstr ""
 
+#: tempCatalog.php:15
 msgid "filter on lastname"
 msgstr ""
 
+#: Actions/ACCESS/admin_actions_list.php:53
+msgid "long_name"
+msgstr ""
+
+#: tempCatalog.php:23
 msgid "modify"
 msgstr ""
 
-#, php-format
+#: Apps/ACCESS/haccess.php:46
+#, c-format
 msgid "no account match '%s'"
 msgstr ""
 
-#, php-format
+#: Apps/ACCESS/haccess.php:79
+#, c-format
 msgid "no application match '%s'"
 msgstr ""
 
+#: Apps/ACCESS/haccess.php:171 Apps/ACCESS/haccess.php:284
 msgid "none"
 msgstr ""
 
-msgid "object"
-msgstr ""
-
-msgid "object control"
-msgstr ""
-
+#: Actions/ACCESS/appl_access.php:69 Actions/ACCESS/user_access.php:73
 msgid "permissions"
 msgstr ""
 
+#: Actions/ACCESS/admin_actions_list.php:52
+#: Actions/ACCESS/admin_actions_list.php:53
+msgid "short_name"
+msgstr ""
+
+#: tempCatalog.php:8 tempCatalog.php:10 tempCatalog.php:11 tempCatalog.php:12
 msgid "upload"
 msgstr ""
 
-#, php-format
+#: Actions/ACCESS/upload.php:76
+#, c-format
 msgid "user %s %s has been added\n"
 msgstr ""
 
-#, php-format
+#: Actions/ACCESS/upload.php:71
+#, c-format
 msgid "user %s %s has been modified\n"
 msgstr ""
 
+#: Actions/ACCESS/appl_access.php:68
 msgid "username"
-msgstr ""
-
-msgid "viewgroup"
-msgstr ""
-
-msgid "viewuser"
 msgstr ""

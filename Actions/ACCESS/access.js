@@ -141,6 +141,7 @@ function createDatatable(id, url, sortColumn, displayLength, colomDef, fnServerP
             "sZeroRecords":"[TEXT:No matching record found]",
             "sInfo":"[TEXT:Showing _START_ to _END_ of _TOTAL_ ]",
             "sInfoEmpty":"[TEXT:No result]",
+            "sProcessing":"[TEXT: Processing]",
             "sInfoFiltered":""
         },
         aoColumnDefs:colomDef
