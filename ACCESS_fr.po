@@ -8,17 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-26 12:13+0100\n"
+"POT-Creation-Date: 2013-03-11 11:48+0100\n"
 "PO-Revision-Date: 2013-02-26 12:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: tempCatalog.php:22
+#: tempCatalog.php:5
 msgid " Processing"
 msgstr "Traitement en cours"
 
@@ -56,11 +56,11 @@ msgid "Cannot edit access. No user parameter."
 msgstr ""
 "Accès aux privilèges impossible : identifiant de l'utilisateur non définit."
 
-#: tempCatalog.php:24 tempCatalog.php:25
+#: tempCatalog.php:7 tempCatalog.php:8
 msgid "Close"
 msgstr "Fermer"
 
-#: tempCatalog.php:9
+#: tempCatalog.php:19
 msgid "Download access acl"
 msgstr "Télécharger la configuration des droits applicatifs"
 
@@ -102,11 +102,11 @@ msgstr "par groupes"
 msgid "Import/Export"
 msgstr "Import/Export"
 
-#: tempCatalog.php:2
+#: tempCatalog.php:12
 msgid "Inherited grant"
 msgstr "Droits hérités"
 
-#: tempCatalog.php:16 tempCatalog.php:17 tempCatalog.php:26
+#: tempCatalog.php:9 tempCatalog.php:10 tempCatalog.php:24
 msgid "Modify access"
 msgstr "Modifier les droits d'accès"
 
@@ -114,23 +114,23 @@ msgstr "Modifier les droits d'accès"
 msgid "Modify any access"
 msgstr "Modifier n'importe quel objet"
 
-#: tempCatalog.php:4
+#: tempCatalog.php:14
 msgid "Negative grant"
 msgstr "Droits négatifs"
 
-#: tempCatalog.php:19
+#: tempCatalog.php:2
 msgid "No matching record found"
 msgstr "Aucun résultat recherché trouvé"
 
-#: tempCatalog.php:21
+#: tempCatalog.php:4
 msgid "No result"
 msgstr "Aucun résultat trouvé"
 
-#: tempCatalog.php:3
+#: tempCatalog.php:13
 msgid "Positive grant"
 msgstr "Droits positifs"
 
-#: tempCatalog.php:5
+#: tempCatalog.php:15
 msgid "Result grant"
 msgstr "Droits résultants"
 
@@ -158,15 +158,15 @@ msgstr "Rôle"
 msgid "Select User Access"
 msgstr "Utilisateur"
 
-#: tempCatalog.php:18
+#: tempCatalog.php:1
 msgid "Show All Items"
 msgstr "Afficher tous les éléments"
 
-#: tempCatalog.php:20
+#: tempCatalog.php:3
 msgid "Showing _START_ to _END_ of _TOTAL_ "
 msgstr "Affiche les résultats _START_ à _END_ sur _TOTAL_"
 
-#: tempCatalog.php:13
+#: tempCatalog.php:23
 msgid "Upload access acl"
 msgstr "Importer un fichier de configuration de droits applicatifs"
 
@@ -190,7 +190,7 @@ msgstr ""
 msgid "access:userlogin"
 msgstr "Compte"
 
-#: tempCatalog.php:1
+#: tempCatalog.php:11
 msgid "accessfor"
 msgstr "Contrôle des accès pour"
 
@@ -219,15 +219,15 @@ msgstr "Contrôle des accès"
 msgid "description"
 msgstr ""
 
-#: tempCatalog.php:6 tempCatalog.php:7
+#: tempCatalog.php:16 tempCatalog.php:17
 msgid "download"
 msgstr "Télécharger le fichier d'acces"
 
-#: tempCatalog.php:14
+#: tempCatalog.php:25
 msgid "filter on accounttype"
 msgstr "Filtrer par type de compte"
 
-#: tempCatalog.php:15
+#: tempCatalog.php:26
 msgid "filter on lastname"
 msgstr "Filtrer sur le nom"
 
@@ -235,7 +235,7 @@ msgstr "Filtrer sur le nom"
 msgid "long_name"
 msgstr ""
 
-#: tempCatalog.php:23
+#: tempCatalog.php:6
 msgid "modify"
 msgstr "Modifier"
 
@@ -262,7 +262,7 @@ msgstr "Droits"
 msgid "short_name"
 msgstr ""
 
-#: tempCatalog.php:8 tempCatalog.php:10 tempCatalog.php:11 tempCatalog.php:12
+#: tempCatalog.php:18 tempCatalog.php:20 tempCatalog.php:21 tempCatalog.php:22
 msgid "upload"
 msgstr "Charger un fichier d'acces"
 
