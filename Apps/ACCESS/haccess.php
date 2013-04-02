@@ -68,11 +68,11 @@ function accessGetApps(Action & $action)
     
     simpleQuery($action->dbaccess, $sql, $result);
     $t = array();
-    foreach ($result as $aAccount) {
-        $dn = trim(sprintf("%s (%s)", ($aAccount["name"]) , $aAccount["short_name"]));
+    foreach ($result as $aApp) {
+        $dn = trim(sprintf("%s (%s)", ($aApp["name"]) , $action->text($aApp["short_name"])));
         $t[] = array(
             "label" => $dn,
-            "value" => $aAccount["id"]
+            "value" => $aApp["id"]
         );
     }
     if ((count($t) == 0) && ($filterName != '')) $t[] = array(
