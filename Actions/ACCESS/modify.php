@@ -67,8 +67,6 @@ function modify_app(Action & $action)
         }
     }
     
-    $action->parent->session->closeAll();
-    $action->parent->session->set(""); // reset session to save current
     $action->lay->template = json_encode(array(
         "success" => true
     ));
