@@ -47,24 +47,13 @@ function user_access(Action & $action, $accountType = "U")
             "src" => $packUrl
         )
     );
-    $csslinks = array(
-        array(
-            "src" => $action->parent->getCssLink("lib/jquery-ui/css/smoothness/jquery-ui.css")
-        ) ,
-        array(
-            "src" => $action->parent->getCssLink("lib/jquery-dataTables/css/jquery.dataTables.css")
-        ) ,
-        array(
-            "src" => $action->parent->getCssLink("ACCESS/Layout/user_access.css")
-        ) ,
-        array(
-            "src" => $action->parent->getCssLink("WHAT/Layout/size-normal.css")
-        ) ,
-        array(
-            "src" => $action->parent->getCssLink("ACCESS/Layout/edit.css")
-        )
-    );
-    $action->lay->setBlockData("CSS_LINKS", $csslinks);
+    
+    $action->parent->addCssRef("css/dcp/jquery-ui.css");
+    $action->parent->addCssRef("lib/jquery-dataTables/css/jquery.dataTables.css");
+    $action->parent->addCssRef("ACCESS:user_access.css");
+    $action->parent->addCssRef("WHAT/Layout/size-normal.css");
+    $action->parent->addCssRef("ACCESS:edit.css");
+    
     $action->lay->setBlockData("JS_LINKS", $jslinks);
     $action->lay->set("idAURG", "iduser");
     // Set the edit form element
