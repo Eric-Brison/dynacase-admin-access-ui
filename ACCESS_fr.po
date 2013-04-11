@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: tempCatalog.php:5
-msgid " Processing"
+msgid "access:Processing"
 msgstr "Traitement en cours"
 
 #: Apps/ACCESS/ACCESS.app:7
@@ -35,7 +35,7 @@ msgid "Admin Access"
 msgstr "Accès administrateur"
 
 #: Apps/ACCESS/haccess.php:337
-msgid "All"
+msgid "access:All"
 msgstr "Tous"
 
 #: Apps/ACCESS/ACCESS.app:60
@@ -57,7 +57,7 @@ msgstr ""
 "Accès aux privilèges impossible : identifiant de l'utilisateur non définit."
 
 #: tempCatalog.php:7 tempCatalog.php:8
-msgid "Close"
+msgid "access:Close"
 msgstr "Fermer"
 
 #: tempCatalog.php:19
@@ -91,7 +91,7 @@ msgstr ""
 "rôles"
 
 #: Actions/ACCESS/edit.php:52
-msgid "Group"
+msgid "access:Group"
 msgstr "Groupe"
 
 #: Apps/ACCESS/ACCESS.app:41
@@ -119,11 +119,11 @@ msgid "Negative grant"
 msgstr "Droits négatifs"
 
 #: tempCatalog.php:2
-msgid "No matching record found"
+msgid "access:No matching record found"
 msgstr "Aucun résultat recherché trouvé"
 
 #: tempCatalog.php:4
-msgid "No result"
+msgid "access:No result"
 msgstr "Aucun résultat trouvé"
 
 #: tempCatalog.php:13
@@ -159,11 +159,11 @@ msgid "Select User Access"
 msgstr "Utilisateur"
 
 #: tempCatalog.php:1
-msgid "Show All Items"
+msgid "access:Show All Items"
 msgstr "Afficher tous les éléments"
 
 #: tempCatalog.php:3
-msgid "Showing _START_ to _END_ of _TOTAL_ "
+msgid "access:Showing _START_ to _END_ of _TOTAL_ "
 msgstr "Affiche les résultats _START_ à _END_ sur _TOTAL_"
 
 #: tempCatalog.php:23
@@ -208,7 +208,7 @@ msgid "appdesc"
 msgstr "Description"
 
 #: Actions/ACCESS/user_access.php:71
-msgid "appname"
+msgid "access:appname"
 msgstr "Application"
 
 #: Apps/ACCESS/haccess.php:110 Apps/ACCESS/haccess.php:233
@@ -216,7 +216,7 @@ msgid "controlaccess"
 msgstr "Contrôle des accès"
 
 #: Apps/ACCESS/haccess.php:296
-msgid "description"
+msgid "access:description"
 msgstr "Gestion des accessibilités"
 
 #: tempCatalog.php:16 tempCatalog.php:17
@@ -232,21 +232,21 @@ msgid "filter on lastname"
 msgstr "Filtrer sur le nom"
 
 #: Actions/ACCESS/admin_actions_list.php:53
-msgid "long_name"
+msgid "access:long_name"
 msgstr "Nom complet"
 
 #: tempCatalog.php:6
-msgid "modify"
+msgid "access:modify"
 msgstr "Modifier"
 
 #: Apps/ACCESS/haccess.php:46
 #, c-format
-msgid "no account match '%s'"
+msgid "access:no account match '%s'"
 msgstr "Aucun compte correspondant à '%s'"
 
 #: Apps/ACCESS/haccess.php:79
 #, c-format
-msgid "no application match '%s'"
+msgid "access:no application match '%s'"
 msgstr "Aucune application correspondante à '%s'"
 
 #: Apps/ACCESS/haccess.php:171 Apps/ACCESS/haccess.php:284
@@ -260,7 +260,7 @@ msgstr "Droits"
 #: Actions/ACCESS/admin_actions_list.php:52
 #: Actions/ACCESS/admin_actions_list.php:53 Actions/ACCESS/appl_access.php:75
 #: Apps/ACCESS/haccess.php:72
-msgid "short_name"
+msgid "access:short_name"
 msgstr "nom abrégé"
 
 #: tempCatalog.php:18 tempCatalog.php:20 tempCatalog.php:21 tempCatalog.php:22

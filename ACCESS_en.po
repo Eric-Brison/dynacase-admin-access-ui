@@ -19,8 +19,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: tempCatalog.php:5
-msgid " Processing"
-msgstr ""
+msgid "access:Processing"
+msgstr "Processing"
 
 #: Apps/ACCESS/ACCESS.app:7
 msgid "Access"
@@ -35,8 +35,8 @@ msgid "Admin Access"
 msgstr ""
 
 #: Apps/ACCESS/haccess.php:337
-msgid "All"
-msgstr ""
+msgid "access:All"
+msgstr "All"
 
 #: Apps/ACCESS/ACCESS.app:60
 msgid "Application Access"
@@ -55,8 +55,8 @@ msgid "Cannot edit access. No user parameter."
 msgstr ""
 
 #: tempCatalog.php:7 tempCatalog.php:8
-msgid "Close"
-msgstr ""
+msgid "access:Close"
+msgstr "Close"
 
 #: tempCatalog.php:19
 msgid "Download access acl"
@@ -87,8 +87,8 @@ msgid "Get datatable information for User, group or role"
 msgstr ""
 
 #: Actions/ACCESS/edit.php:52
-msgid "Group"
-msgstr ""
+msgid "access:Group"
+msgstr "Group"
 
 #: Apps/ACCESS/ACCESS.app:41
 msgid "Group Access"
@@ -115,12 +115,12 @@ msgid "Negative grant"
 msgstr ""
 
 #: tempCatalog.php:2
-msgid "No matching record found"
-msgstr ""
+msgid "access:No matching record found"
+msgstr "No matching record found"
 
 #: tempCatalog.php:4
-msgid "No result"
-msgstr ""
+msgid "access:No result"
+msgstr "No result"
 
 #: tempCatalog.php:13
 msgid "Positive grant"
@@ -155,12 +155,12 @@ msgid "Select User Access"
 msgstr ""
 
 #: tempCatalog.php:1
-msgid "Show All Items"
-msgstr ""
+msgid "access:Show All Items"
+msgstr "Show All Items"
 
 #: tempCatalog.php:3
-msgid "Showing _START_ to _END_ of _TOTAL_ "
-msgstr ""
+msgid "access:Showing _START_ to _END_ of _TOTAL_ "
+msgstr "Showing _START_ to _END_ of _TOTAL_ "
 
 #: tempCatalog.php:23
 msgid "Upload access acl"
@@ -204,16 +204,16 @@ msgid "appdesc"
 msgstr ""
 
 #: Actions/ACCESS/user_access.php:71
-msgid "appname"
-msgstr ""
+msgid "access:appname"
+msgstr "Application name"
 
 #: Apps/ACCESS/haccess.php:110 Apps/ACCESS/haccess.php:233
 msgid "controlaccess"
 msgstr ""
 
 #: Apps/ACCESS/haccess.php:296
-msgid "description"
-msgstr ""
+msgid "access:description"
+msgstr "description"
 
 #: tempCatalog.php:16 tempCatalog.php:17
 msgid "download"
@@ -228,22 +228,22 @@ msgid "filter on lastname"
 msgstr ""
 
 #: Actions/ACCESS/admin_actions_list.php:53
-msgid "long_name"
-msgstr ""
+msgid "access:long_name"
+msgstr "Complete name"
 
 #: tempCatalog.php:6
-msgid "modify"
-msgstr ""
+msgid "access:modify"
+msgstr "modify"
 
 #: Apps/ACCESS/haccess.php:46
 #, c-format
-msgid "no account match '%s'"
-msgstr ""
+msgid "access:no account match '%s'"
+msgstr "no account match '%s'"
 
 #: Apps/ACCESS/haccess.php:79
 #, c-format
-msgid "no application match '%s'"
-msgstr ""
+msgid "access:no application match '%s'"
+msgstr "no application match '%s'"
 
 #: Apps/ACCESS/haccess.php:171 Apps/ACCESS/haccess.php:284
 msgid "none"
@@ -256,8 +256,8 @@ msgstr ""
 #: Actions/ACCESS/admin_actions_list.php:52
 #: Actions/ACCESS/admin_actions_list.php:53 Actions/ACCESS/appl_access.php:75
 #: Apps/ACCESS/haccess.php:72
-msgid "short_name"
-msgstr ""
+msgid "access:short_name"
+msgstr "Short name"
 
 #: tempCatalog.php:18 tempCatalog.php:20 tempCatalog.php:21 tempCatalog.php:22
 msgid "upload"

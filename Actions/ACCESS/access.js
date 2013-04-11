@@ -68,7 +68,7 @@
             if (this.options.mode == "input") {
                 $("<a>")
                     .attr("tabIndex", -1)
-                    .attr("title", "[TEXT:Show All Items]")
+                    .attr("title", "[TEXT:access:Show All Items]")
                     .appendTo(wrapper)
                     .button({
                         icons:{
@@ -138,10 +138,10 @@ function createDatatable(id, url, sortColumn, displayLength, colomDef, fnServerP
             [sortColumn, 'asc']
         ],
         "oLanguage":{
-            "sZeroRecords":"[TEXT:No matching record found]",
-            "sInfo":"[TEXT:Showing _START_ to _END_ of _TOTAL_ ]",
-            "sInfoEmpty":"[TEXT:No result]",
-            "sProcessing":"[TEXT: Processing]",
+            "sZeroRecords":"[TEXT:access:No matching record found]",
+            "sInfo":"[TEXT:access:Showing _START_ to _END_ of _TOTAL_ ]",
+            "sInfoEmpty":"[TEXT:access:No result]",
+            "sProcessing":"[TEXT:access:Processing]",
             "sInfoFiltered":""
         },
         aoColumnDefs:colomDef
@@ -165,7 +165,7 @@ function displaySubWindow(height, width, ref, title, datatable) {
             stack:'.ui-dialog',
             position:"center",
             buttons:{
-                "[TEXT:modify]":function () {
+                "[TEXT:access:modify]":function () {
                     var form = $(this).find("form").serialize();
                     var $parent = $(this);
                     $.post("?app=ACCESS&action=MODIFY", form, function (data) {
@@ -173,7 +173,7 @@ function displaySubWindow(height, width, ref, title, datatable) {
                             $parent.html(data.error);
                             $parent.dialog("option", "buttons", [
                                 {
-                                    text:"[TEXT:Close]",
+                                    text:"[TEXT:access:Close]",
                                     click:function () {
                                         $(this).dialog("close");
                                     }
@@ -185,7 +185,7 @@ function displaySubWindow(height, width, ref, title, datatable) {
                         }
                     });
                 },
-                "[TEXT:Close]":function () {
+                "[TEXT:accesss:Close]":function () {
                     $(this).dialog("close");
                 }
             },

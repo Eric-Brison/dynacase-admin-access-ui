@@ -43,7 +43,7 @@ function accessGetAccounts(Action & $action)
         );
     }
     if ((count($t) == 0) && ($filterName != '')) $t[] = array(
-        "label" => sprintf(_("no account match '%s'") , $filterName) ,
+        "label" => sprintf(_("access:no account match '%s'") , $filterName) ,
         "value" => 0
     );
     $action->lay->template = json_encode($t);
@@ -76,7 +76,7 @@ function accessGetApps(Action & $action)
         );
     }
     if ((count($t) == 0) && ($filterName != '')) $t[] = array(
-        "label" => sprintf(_("no application match '%s'") , $filterName) ,
+        "label" => sprintf(_("access:no application match '%s'") , $filterName) ,
         "value" => 0
     );
     $action->lay->template = json_encode($t);
@@ -334,7 +334,7 @@ function getAccounttypesImage(Action & $action)
         array(
             "value" => "",
             "imgsrc" => $action->parent->getImageLink("access.gif", true, 18) ,
-            "label" => _("All") ,
+            "label" => _("access:All") ,
             "imgclass" => "ui-icon ui-icon-radio-on"
         )
     );

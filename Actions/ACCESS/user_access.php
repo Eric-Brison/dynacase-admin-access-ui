@@ -68,7 +68,7 @@ function user_access(Action & $action, $accountType = "U")
     $action->lay->setBlockData("JS_LINKS", $jslinks);
     $action->lay->set("idAURG", "iduser");
     // Set the edit form element
-    $action->lay->set("shortname", _($action->text("appname")));
+    $action->lay->set("shortname", _($action->text("access:appname")));
     $action->lay->set("desc", _($action->text("appdesc")));
     $action->lay->set("permission", $action->text("permissions"));
     $action->lay->set("placeholder", _("Application filter"));

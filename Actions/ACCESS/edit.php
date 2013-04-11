@@ -49,7 +49,7 @@ function edit(Action & $action)
             break;
 
         case "G":
-            $action->lay->set("accountLabel", _("Group"));
+            $action->lay->set("accountLabel", _("access:Group"));
             break;
 
         case "R":
