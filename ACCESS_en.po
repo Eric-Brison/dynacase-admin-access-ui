@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-11 11:48+0100\n"
-"PO-Revision-Date: 2013-01-16 16:10+0100\n"
+"POT-Creation-Date: 2013-04-11 11:55+0200\n"
+"PO-Revision-Date: 2013-04-11 13:34+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -254,7 +254,8 @@ msgid "permissions"
 msgstr ""
 
 #: Actions/ACCESS/admin_actions_list.php:52
-#: Actions/ACCESS/admin_actions_list.php:53
+#: Actions/ACCESS/admin_actions_list.php:53 Actions/ACCESS/appl_access.php:75
+#: Apps/ACCESS/haccess.php:72
 msgid "short_name"
 msgstr ""
 

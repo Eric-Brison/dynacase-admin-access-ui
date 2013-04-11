@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-11 11:48+0100\n"
-"PO-Revision-Date: 2013-02-26 12:14+0100\n"
+"POT-Creation-Date: 2013-04-11 11:55+0200\n"
+"PO-Revision-Date: 2013-04-11 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -184,7 +184,7 @@ msgstr "Paramétrage des ACL applications et actions"
 
 #: Apps/ACCESS/ACCESS.app:26
 msgid "access:ADMIN_ACTIONS_LIST short_name"
-msgstr ""
+msgstr "Accessibilités"
 
 #: Actions/ACCESS/appl_access.php:67
 msgid "access:userlogin"
@@ -217,7 +217,7 @@ msgstr "Contrôle des accès"
 
 #: Apps/ACCESS/haccess.php:296
 msgid "description"
-msgstr ""
+msgstr "Gestion des accessibilités"
 
 #: tempCatalog.php:16 tempCatalog.php:17
 msgid "download"
@@ -233,7 +233,7 @@ msgstr "Filtrer sur le nom"
 
 #: Actions/ACCESS/admin_actions_list.php:53
 msgid "long_name"
-msgstr ""
+msgstr "Nom complet"
 
 #: tempCatalog.php:6
 msgid "modify"
@@ -258,9 +258,10 @@ msgid "permissions"
 msgstr "Droits"
 
 #: Actions/ACCESS/admin_actions_list.php:52
-#: Actions/ACCESS/admin_actions_list.php:53
+#: Actions/ACCESS/admin_actions_list.php:53 Actions/ACCESS/appl_access.php:75
+#: Apps/ACCESS/haccess.php:72
 msgid "short_name"
-msgstr ""
+msgstr "nom abrégé"
 
 #: tempCatalog.php:18 tempCatalog.php:20 tempCatalog.php:21 tempCatalog.php:22
 msgid "upload"
