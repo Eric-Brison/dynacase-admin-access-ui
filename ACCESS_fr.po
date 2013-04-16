@@ -8,25 +8,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-11 11:55+0200\n"
-"PO-Revision-Date: 2013-04-11 13:33+0100\n"
+"POT-Creation-Date: 2013-04-16 11:11+0200\n"
+"PO-Revision-Date: 2013-04-16 11:08+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-
-#: tempCatalog.php:5
-msgid "access:Processing"
-msgstr "Traitement en cours"
 
 #: Apps/ACCESS/ACCESS.app:7
 msgid "Access"
 msgstr "Gestion des accessibilités"
 
-#: Actions/ACCESS/appl_access.php:70
+#: Actions/ACCESS/appl_access.php:59
 msgid "Account filter"
 msgstr "Rechercher un compte"
 
@@ -34,15 +30,11 @@ msgstr "Rechercher un compte"
 msgid "Admin Access"
 msgstr "Accès administrateur"
 
-#: Apps/ACCESS/haccess.php:337
-msgid "access:All"
-msgstr "Tous"
-
 #: Apps/ACCESS/ACCESS.app:60
 msgid "Application Access"
 msgstr "par applications"
 
-#: Actions/ACCESS/user_access.php:74
+#: Actions/ACCESS/user_access.php:63
 msgid "Application filter"
 msgstr "Filtrer les applications"
 
@@ -56,11 +48,7 @@ msgid "Cannot edit access. No user parameter."
 msgstr ""
 "Accès aux privilèges impossible : identifiant de l'utilisateur non définit."
 
-#: tempCatalog.php:7 tempCatalog.php:8
-msgid "access:Close"
-msgstr "Fermer"
-
-#: tempCatalog.php:19
+#: tempCatalog.php:9
 msgid "Download access acl"
 msgstr "Télécharger la configuration des droits applicatifs"
 
@@ -90,10 +78,6 @@ msgstr ""
 "Récupérer les informations pour la datatable des utilisateurs, groupes ou "
 "rôles"
 
-#: Actions/ACCESS/edit.php:52
-msgid "access:Group"
-msgstr "Groupe"
-
 #: Apps/ACCESS/ACCESS.app:41
 msgid "Group Access"
 msgstr "par groupes"
@@ -102,11 +86,11 @@ msgstr "par groupes"
 msgid "Import/Export"
 msgstr "Import/Export"
 
-#: tempCatalog.php:12
+#: tempCatalog.php:2
 msgid "Inherited grant"
 msgstr "Droits hérités"
 
-#: tempCatalog.php:9 tempCatalog.php:10 tempCatalog.php:24
+#: tempCatalog.php:16 tempCatalog.php:17 tempCatalog.php:26
 msgid "Modify access"
 msgstr "Modifier les droits d'accès"
 
@@ -114,23 +98,15 @@ msgstr "Modifier les droits d'accès"
 msgid "Modify any access"
 msgstr "Modifier n'importe quel objet"
 
-#: tempCatalog.php:14
+#: tempCatalog.php:4
 msgid "Negative grant"
 msgstr "Droits négatifs"
 
-#: tempCatalog.php:2
-msgid "access:No matching record found"
-msgstr "Aucun résultat recherché trouvé"
-
-#: tempCatalog.php:4
-msgid "access:No result"
-msgstr "Aucun résultat trouvé"
-
-#: tempCatalog.php:13
+#: tempCatalog.php:3
 msgid "Positive grant"
 msgstr "Droits positifs"
 
-#: tempCatalog.php:15
+#: tempCatalog.php:5
 msgid "Result grant"
 msgstr "Droits résultants"
 
@@ -142,31 +118,23 @@ msgstr "Rôle"
 msgid "Role Access"
 msgstr "par rôles"
 
-#: Actions/ACCESS/appl_access.php:66
+#: Actions/ACCESS/appl_access.php:55
 msgid "Select Application Access"
 msgstr "Application"
 
-#: Actions/ACCESS/user_access.php:83
+#: Actions/ACCESS/user_access.php:72
 msgid "Select Group Access"
 msgstr "Groupe"
 
-#: Actions/ACCESS/user_access.php:85
+#: Actions/ACCESS/user_access.php:74
 msgid "Select Role Access"
 msgstr "Rôle"
 
-#: Actions/ACCESS/user_access.php:87
+#: Actions/ACCESS/user_access.php:76
 msgid "Select User Access"
 msgstr "Utilisateur"
 
-#: tempCatalog.php:1
-msgid "access:Show All Items"
-msgstr "Afficher tous les éléments"
-
-#: tempCatalog.php:3
-msgid "access:Showing _START_ to _END_ of _TOTAL_ "
-msgstr "Affiche les résultats _START_ à _END_ sur _TOTAL_"
-
-#: tempCatalog.php:23
+#: tempCatalog.php:13
 msgid "Upload access acl"
 msgstr "Importer un fichier de configuration de droits applicatifs"
 
@@ -186,56 +154,43 @@ msgstr "Paramétrage des ACL applications et actions"
 msgid "access:ADMIN_ACTIONS_LIST short_name"
 msgstr "Accessibilités"
 
-#: Actions/ACCESS/appl_access.php:67
-msgid "access:userlogin"
-msgstr "Compte"
+#: Apps/ACCESS/haccess.php:337
+msgid "access:All"
+msgstr "Tous"
 
-#: tempCatalog.php:11
-msgid "accessfor"
-msgstr "Contrôle des accès pour"
+#: tempCatalog.php:24
+msgid "access:Close"
+msgstr "Fermer"
 
-#: Actions/ACCESS/appl_access.php:71
-msgid "accounttype"
-msgstr "Type"
+#: Actions/ACCESS/edit.php:52
+msgid "access:Group"
+msgstr "Groupe"
 
-#: Actions/ACCESS/upload.php:154
-#, c-format
-msgid "add acl %s for %s %s\n"
-msgstr "ajout privilège %s pour %s %s\n"
+#: tempCatalog.php:19
+msgid "access:No matching record found"
+msgstr "Aucun résultat recherché trouvé"
 
-#: Actions/ACCESS/user_access.php:72
-msgid "appdesc"
-msgstr "Description"
+#: tempCatalog.php:21
+msgid "access:No result"
+msgstr "Aucun résultat trouvé"
 
-#: Actions/ACCESS/user_access.php:71
+#: tempCatalog.php:22
+msgid "access:Processing"
+msgstr "Traitement en cours"
+
+#: tempCatalog.php:18
+msgid "access:Show All Items"
+msgstr "Afficher tous les éléments"
+
+#: tempCatalog.php:20
+msgid "access:Showing _START_ to _END_ of _TOTAL_ "
+msgstr "Affiche les résultats _START_ à _END_ sur _TOTAL_"
+
+#: Actions/ACCESS/user_access.php:60
 msgid "access:appname"
 msgstr "Application"
 
-#: Apps/ACCESS/haccess.php:110 Apps/ACCESS/haccess.php:233
-msgid "controlaccess"
-msgstr "Contrôle des accès"
-
-#: Apps/ACCESS/haccess.php:296
-msgid "access:description"
-msgstr "Gestion des accessibilités"
-
-#: tempCatalog.php:16 tempCatalog.php:17
-msgid "download"
-msgstr "Télécharger le fichier d'acces"
-
-#: tempCatalog.php:25
-msgid "filter on accounttype"
-msgstr "Filtrer par type de compte"
-
-#: tempCatalog.php:26
-msgid "filter on lastname"
-msgstr "Filtrer sur le nom"
-
-#: Actions/ACCESS/admin_actions_list.php:53
-msgid "access:long_name"
-msgstr "Nom complet"
-
-#: tempCatalog.php:6
+#: tempCatalog.php:23
 msgid "access:modify"
 msgstr "Modifier"
 
@@ -249,21 +204,56 @@ msgstr "Aucun compte correspondant à '%s'"
 msgid "access:no application match '%s'"
 msgstr "Aucune application correspondante à '%s'"
 
+#: Actions/ACCESS/appl_access.php:56
+msgid "access:userlogin"
+msgstr "Compte"
+
+#: tempCatalog.php:1
+msgid "accessfor"
+msgstr "Contrôle des accès pour"
+
+#: tempCatalog.php:25
+msgid "accesss:Close"
+msgstr "Fermer"
+
+#: Actions/ACCESS/appl_access.php:60
+msgid "accounttype"
+msgstr "Type"
+
+#: Actions/ACCESS/upload.php:154
+#, c-format
+msgid "add acl %s for %s %s\n"
+msgstr "ajout privilège %s pour %s %s\n"
+
+#: Actions/ACCESS/user_access.php:61
+msgid "appdesc"
+msgstr "Description"
+
+#: Apps/ACCESS/haccess.php:110 Apps/ACCESS/haccess.php:233
+msgid "controlaccess"
+msgstr "Contrôle des accès"
+
+#: tempCatalog.php:6 tempCatalog.php:7
+msgid "download"
+msgstr "Télécharger le fichier d'acces"
+
+#: tempCatalog.php:14
+msgid "filter on accounttype"
+msgstr "Filtrer par type de compte"
+
+#: tempCatalog.php:15
+msgid "filter on lastname"
+msgstr "Filtrer sur le nom"
+
 #: Apps/ACCESS/haccess.php:171 Apps/ACCESS/haccess.php:284
 msgid "none"
 msgstr "Aucun"
 
-#: Actions/ACCESS/appl_access.php:69 Actions/ACCESS/user_access.php:73
+#: Actions/ACCESS/appl_access.php:58 Actions/ACCESS/user_access.php:62
 msgid "permissions"
 msgstr "Droits"
 
-#: Actions/ACCESS/admin_actions_list.php:52
-#: Actions/ACCESS/admin_actions_list.php:53 Actions/ACCESS/appl_access.php:75
-#: Apps/ACCESS/haccess.php:72
-msgid "access:short_name"
-msgstr "nom abrégé"
-
-#: tempCatalog.php:18 tempCatalog.php:20 tempCatalog.php:21 tempCatalog.php:22
+#: tempCatalog.php:8 tempCatalog.php:10 tempCatalog.php:11 tempCatalog.php:12
 msgid "upload"
 msgstr "Charger un fichier d'acces"
 
@@ -277,7 +267,7 @@ msgstr "l'utilisateur %s %s a été ajouté\n"
 msgid "user %s %s has been modified\n"
 msgstr "l'utilisateur %s %s a été modifié\n"
 
-#: Actions/ACCESS/appl_access.php:68
+#: Actions/ACCESS/appl_access.php:57
 msgid "username"
 msgstr "Nom"
 
@@ -298,6 +288,15 @@ msgstr "Nom"
 
 #~ msgid "Search"
 #~ msgstr "Recherche"
+
+#~ msgid "access:description"
+#~ msgstr "Gestion des accessibilités"
+
+#~ msgid "access:long_name"
+#~ msgstr "Nom complet"
+
+#~ msgid "access:short_name"
+#~ msgstr "nom abrégé"
 
 #~ msgid "cannot write  %s"
 #~ msgstr "écriture impossible : %s"

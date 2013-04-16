@@ -69,7 +69,7 @@ function accessGetApps(Action & $action)
     simpleQuery($action->dbaccess, $sql, $result);
     $t = array();
     foreach ($result as $aApp) {
-        $dn = trim(sprintf("%s (%s)", ($aApp["name"]) , $action->text($aApp["short_name"])));
+        $dn = trim(sprintf("%s (%s)", ($aApp["name"]) , $action->text($aApp['short_name'])));
         $t[] = array(
             "label" => $dn,
             "value" => $aApp["id"]
@@ -293,7 +293,7 @@ function accessUserGetDatatableInfo(Action & $action)
             
             $currentRow["selname"] = $v["name"];
             $currentRow["id"] = $v["id"];
-            $currentRow["description"] = _($v["description"]);
+            $currentRow["description"] = $action->text($v['description']);
             $currentRow["edit"] = str_replace("[id]", $v["id"], $jsscript);
             $currentRow["imgaccess"] = $action->parent->getImageLink($v["icon"], true, 18);
             $data[] = $currentRow;

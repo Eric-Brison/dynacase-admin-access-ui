@@ -61,7 +61,7 @@ function appl_access(Action & $action, $oid = 0)
     
     $appl_info = array();
     simpleQuery($action->dbaccess, "select id,name,short_name from application where name='ACCESS'", $appl_info, false, true);
-    $action->lay->set("valueAURG", trim(sprintf("%s (%s)", ($appl_info["name"]) , $action->text($appl_info["short_name"]))));
+    $action->lay->set("valueAURG", trim(sprintf("%s (%s)", ($appl_info["name"]) , $action->text($appl_info['short_name']))));
     $action->lay->set("valueidAURG", $appl_info["id"]);
     
     $action->lay->set("imgaccounttype", $action->parent->getImageLink("access.gif", true, 18));
