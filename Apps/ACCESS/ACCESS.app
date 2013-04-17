@@ -24,6 +24,7 @@ $action_desc = array(
     array(
         "name"       => "ADMIN_ACTIONS_LIST",
         "short_name" => N_("access:ADMIN_ACTIONS_LIST short_name"),
+        "acl" => "ADMIN"
     ),
     array(
         "name" => "USER_ACCESS",
