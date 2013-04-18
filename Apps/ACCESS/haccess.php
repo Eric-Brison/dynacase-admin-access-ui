@@ -33,9 +33,9 @@ function accessGetAccounts(Action & $action)
     
     foreach ($result as $aAccount) {
         if ($aAccount["accounttype"] == 'U') {
-            $dn = trim(sprintf("%s %s (%s)", ($aAccount["lastname"]) , $aAccount["firstname"], $aAccount["login"]));
+            $dn = trim(sprintf("%s %s (%s)", htmlspecialchars($aAccount["lastname"]) , htmlspecialchars($aAccount["firstname"]) , htmlspecialchars($aAccount["login"])));
         } else {
-            $dn = trim(sprintf("%s %s", ($aAccount["lastname"]) , $aAccount["firstname"]));
+            $dn = trim(sprintf("%s %s", htmlspecialchars($aAccount["lastname"]) , htmlspecialchars($aAccount["firstname"])));
         }
         $t[] = array(
             "label" => $dn,
@@ -69,7 +69,7 @@ function accessGetApps(Action & $action)
     simpleQuery($action->dbaccess, $sql, $result);
     $t = array();
     foreach ($result as $aApp) {
-        $dn = trim(sprintf("%s (%s)", ($aApp["name"]) , $action->text($aApp['short_name'])));
+        $dn = trim(sprintf("%s (%s)", htmlspecialchars($aApp["name"]) , htmlspecialchars($action->text($aApp['short_name']))));
         $t[] = array(
             "label" => $dn,
             "value" => $aApp["id"]
@@ -176,14 +176,14 @@ function accessGetDatatableInfo(Action & $action)
                     }
                 }
                 $currentRow["aclname"] = $tab;
-                $currentRow["name"] = $v["login"];
+                $currentRow["name"] = htmlspecialchars($v["login"]);
                 
                 $currentRow["selname"] = $v["id"];
                 $currentRow["id"] = $v["id"];
                 
                 if (!isset($v["firstname"])) $v["firstname"] = "";
                 if (!isset($v["lastname"])) $v["lastname"] = "";
-                $currentRow["description"] = $v["firstname"] . " " . $v["lastname"];
+                $currentRow["description"] = htmlspecialchars($v["firstname"] . " " . $v["lastname"]);
                 $currentRow["edit"] = str_replace("[id]", $v["id"], $jsscript);
                 foreach ($accountttypes as $accountttype) {
                     if ($accountttype["value"] == $v["accounttype"]) {
@@ -289,11 +289,11 @@ function accessUserGetDatatableInfo(Action & $action)
                 }
             }
             $currentRow["aclname"] = $acltab;
-            $currentRow["name"] = $v["name"];
+            $currentRow["name"] = htmlspecialchars($v["name"]);
             
-            $currentRow["selname"] = $v["name"];
+            $currentRow["selname"] = htmlspecialchars($v["name"]);
             $currentRow["id"] = $v["id"];
-            $currentRow["description"] = $action->text($v['description']);
+            $currentRow["description"] = htmlspecialchars($action->text($v['description']));
             $currentRow["edit"] = str_replace("[id]", $v["id"], $jsscript);
             $currentRow["imgaccess"] = $action->parent->getImageLink($v["icon"], true, 18);
             $data[] = $currentRow;
