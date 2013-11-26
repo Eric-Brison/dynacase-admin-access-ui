@@ -59,7 +59,7 @@ function edit(Action & $action)
         default:
             $action->lay->set("accountLabel", "");
     }
-    $action->lay->Set("title", $user->firstname . " " . $user->lastname);
+    $action->lay->eSet("title", $user->firstname . " " . $user->lastname);
     edit_main($action, $userId, $appId);
 }
 // -----------------------------------
@@ -72,14 +72,14 @@ function edit_main(Action & $action, $userId, $appId, $coid = 0)
     if (!$userId) $action->exitError(_("Cannot edit access. No user parameter."));
     
     $action->lay->Set("nbinput", 4);
-    $action->lay->Set("userid", $userId);
-    $action->lay->Set("oid", $coid);
-    $action->lay->Set("appid", $appId);
+    $action->lay->eSet("userid", $userId);
+    $action->lay->eSet("oid", $coid);
+    $action->lay->eSet("appid", $appId);
     $action->lay->Set("dboperm", "");
     //-------------------
     // compute permission
     $app = new Application($action->dbaccess, $appId);
-    $action->lay->Set("appname", $action->text($app->short_name));
+    $action->lay->eSet("appname", $action->text($app->short_name));
     $uperm = new Permission($action->dbaccess, array(
         $userId,
         $appId
@@ -119,4 +119,3 @@ function edit_main(Action & $action, $userId, $appId, $coid = 0)
     
     $action->lay->SetBlockData("SELECTACL", $tableacl);
 }
-?>

@@ -27,7 +27,7 @@ function user_access(Action & $action, $accountType = "U")
     $filteruser = $action->getArgument("userfilter");
     
     $user_id = $action->getArgument("uid");
-    $action->lay->set("userfilter", $filteruser);
+    $action->lay->eSet("userfilter", $filteruser);
     
     $packUrl = $action->parent->getJsLink("ACCESS:access.js", true, "USER_ACCESS");
     $action->parent->getJsLink("ACCESS:user_access.js", true, "USER_ACCESS");
@@ -57,14 +57,14 @@ function user_access(Action & $action, $accountType = "U")
     $action->lay->setBlockData("JS_LINKS", $jslinks);
     $action->lay->set("idAURG", "iduser");
     // Set the edit form element
-    $action->lay->set("shortname", _($action->text("access:appname")));
-    $action->lay->set("desc", _($action->text("appdesc")));
-    $action->lay->set("permission", $action->text("permissions"));
-    $action->lay->set("placeholder", _("Application filter"));
+    $action->lay->eSet("shortname", _($action->text("access:appname")));
+    $action->lay->eSet("desc", _($action->text("appdesc")));
+    $action->lay->eSet("permission", $action->text("permissions"));
+    $action->lay->eSet("placeholder", _("Application filter"));
     
     $action->lay->set("maxreach", false);
     $action->lay->set("usefilter", false);
-    $action->lay->set("accountType", $accountType);
+    $action->lay->eSet("accountType", $accountType);
     $action->lay->set("URG", true);
     // affect the select form elements
     $u = new Account();
@@ -86,9 +86,8 @@ function user_access(Action & $action, $accountType = "U")
     } else {
         $value = $dn = trim(sprintf("%s %s", $u->lastname, $u->firstname));
     }
-    $action->lay->set("valueAURG", $value);
-    $action->lay->set("valueidAURG", $user_id);
+    $action->lay->eSet("valueAURG", $value);
+    $action->lay->eSet("valueidAURG", $user_id);
     
     $action->lay->set("hasuser", $u->id ? true : false);
 }
-?>
