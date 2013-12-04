@@ -1,5 +1,5 @@
 PACKAGE = dynacase-admin-access-ui
-VERSION = @VERSION_ACCESS@
+VERSION = @VERSION@
 utildir = @PUBRULE@
 pubdir = @prefix@
 srcdir = @srcdir@
@@ -10,10 +10,10 @@ GZIP_ENV = --best
 
 export PACKAGE utildir pubdir applib appname
 
-SUBDIR= Actions Apps Data Images Programs Scripts
+SUBDIR= Actions Apps Data Images Programs Scripts locale
 
 include $(utildir)/PubRule
 
 clean:
-	/bin/rm -f *.*~ config.* Makefile configure Apps/$(appname)/$(appname)_init.php info.xml ../$(PACKAGE)-*webinst LICENSE
+	/bin/rm -f *.*~ config.* Makefile configure Apps/$(appname)/$(appname)_init.php info.xml ../$(PACKAGE)-*webinst
 	/bin/rm -fr autom4te.cache
