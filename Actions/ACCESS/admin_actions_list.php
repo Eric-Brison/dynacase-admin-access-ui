@@ -3,7 +3,7 @@
  * @author Anakeen
  * @license http://www.fsf.org/licensing/licenses/agpl-3.0.html GNU Affero General Public License
  * @package FDL
- */
+*/
 
 function admin_actions_list(Action & $action)
 {
@@ -27,13 +27,19 @@ function admin_actions_list(Action & $action)
 SELECT
     action.name,
     action.short_name,
-    action.long_name,
-    (select with_frame from application where id=$appId) as with_frame
-FROM action
+    action.long_name
+FROM action,
+    (VALUES
+        ('APPL_ACCESS',   1),
+        ('ROLE_ACCESS',   2),
+        ('GROUP_ACCESS',  3),
+        ('USER_ACCESS',   4),
+        ('IMPORT_EXPORT', 5)
+    ) AS toc(name, position)
 WHERE
-    action.toc = 'Y'
-    AND action.id_application = $appId
-ORDER BY action.toc_order
+    action.id_application = $appId AND
+    action.name = toc.name
+ORDER BY toc.position
 ;
 SQL;
         /*
@@ -49,9 +55,6 @@ SQL;
         foreach ($adminActions as $adminAction) {
             if (!$action->canExecute($adminAction["name"], $appId)) {
                 $actionUrl = "?app=$appName&action=" . $adminAction["name"];
-                if ($adminAction["with_frame"] !== 'Y') {
-                    $actionUrl.= "&sole=A";
-                }
                 $body[] = array(
                     "url" => $actionUrl,
                     "label" => $action->text($adminAction['short_name']) ,
