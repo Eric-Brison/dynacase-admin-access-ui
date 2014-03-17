@@ -63,7 +63,6 @@ function changeuser(&$action, $line, $verbose = false)
     $use->password = $col[1];
     $use->firstname = $col[2];
     $use->lastname = $col[3];
-    $use->isgroup = $col[4];
     if ($use->IsAffected()) {
         $err = $use->Modify(true);
         if ($err != "") print $err;
@@ -156,4 +155,3 @@ function changeacl(&$action, $line, $verbose = false)
         }
     }
 }
-?>
