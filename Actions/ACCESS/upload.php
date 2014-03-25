@@ -63,6 +63,7 @@ function changeuser(&$action, $line, $verbose = false)
     $use->password = $col[1];
     $use->firstname = $col[2];
     $use->lastname = $col[3];
+    $use->accounttype = ($col[4] == 'Y') ? 'G' : 'U';
     if ($use->IsAffected()) {
         $err = $use->Modify(true);
         if ($err != "") print $err;
