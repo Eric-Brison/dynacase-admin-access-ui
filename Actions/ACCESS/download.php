@@ -2,30 +2,17 @@
 /*
  * @author Anakeen
  * @license http://www.fsf.org/licensing/licenses/agpl-3.0.html GNU Affero General Public License
- * @package FDL
+ * @package ACCESS
 */
 /**
  * Generated Header (not documented yet)
- *
- * @author Anakeen
- * @version $Id: download.php,v 1.5 2003/08/18 15:46:41 eric Exp $
- * @license http://www.fsf.org/licensing/licenses/agpl-3.0.html GNU Affero General Public License
- * @package FDL
- * @subpackage ACCESS
  */
-/**
- */
-// ---------------------------------------------------------------
-// $Id: download.php,v 1.5 2003/08/18 15:46:41 eric Exp $
-// $Source: /home/cvsroot/anakeen/freedom/core/Action/Access/download.php,v $
-// ---------------------------------------------------------------
 include_once ("Lib.Http.php");
 include_once ("FDL/freedom_util.php");
 // -----------------------------------
 function download(Action & $action)
 {
     // -----------------------------------
-    $dbaccess_freedom = $action->getParam('FREEDOM_DB');
     $dbaccess_core = $action->getParam('CORE_DB');
     
     $cache = array(
@@ -38,7 +25,7 @@ function download(Action & $action)
     $aclList = $q->query(0, 0, "TABLE", sprintf("SELECT id_user, id_application, id_acl FROM permission WHERE computed IS NULL OR computed = FALSE;"));
     
     $aclExport = array();
-    foreach ($aclList as $k => & $el) {
+    foreach ($aclList as & $el) {
         $app_name = getApplicationNameFromId($dbaccess_core, $el['id_application'], $cache);
         if ($app_name === null) {
             error_log(__CLASS__ . "::" . __FUNCTION__ . " " . sprintf("Unknown name for application with id '%s'", $el['id_application']));
@@ -59,7 +46,7 @@ function download(Action & $action)
             error_log(__CLASS__ . "::" . __FUNCTION__ . " " . sprintf("Unknown fid for user with wid '%s'", $el['id_user']));
             continue;
         }
-        $user_name = getNameFromId($dbaccess_freedom, $user_fid);
+        $user_name = \Dcp\DocManager::getNameFromId($user_fid);
         // If there is no logical name, then keep the core id (id_user)
         if ($user_name == "") {
             $user_name = $el['id_user'];
@@ -71,6 +58,7 @@ function download(Action & $action)
             'acl_name' => $acl_name
         ));
     }
+    unset($el);
     
     $action->lay->setBlockData("ACCESS", $aclExport);
     
@@ -177,4 +165,3 @@ function getUserFIDFromWID($dbaccess, $wid, &$cache)
     
     return $fid;
 }
-?>

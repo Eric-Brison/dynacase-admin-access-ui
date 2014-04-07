@@ -2,14 +2,15 @@
 /*
  * @author Anakeen
  * @license http://www.fsf.org/licensing/licenses/agpl-3.0.html GNU Affero General Public License
- * @package FDL
+ * @package ACCESS
 */
 
 include_once "FDL/freedom_util.php";
 /**
  * return account documents
  * @param Action $action
- * @internal param string $filterName title filter key
+ * @throws Dcp\Db\Exception
+ * @internal param string $filter Name title filter key
  * @internal param int $limit max account returned
  * @return array
  */
@@ -312,9 +313,9 @@ function accessUserGetDatatableInfo(Action & $action)
 
 function getAccounttypesImage(Action & $action)
 {
-    $dr = new_doc($action->dbaccess, "ROLE");
-    $du = new_doc($action->dbaccess, "IUSER");
-    $dg = new_doc($action->dbaccess, "IGROUP");
+    $dr = \Dcp\DocManager::getFamily("ROLE");
+    $du = \Dcp\DocManager::getFamily("IUSER");
+    $dg = \Dcp\DocManager::getFamily("IGROUP");
     return array(
         array(
             "value" => "U",

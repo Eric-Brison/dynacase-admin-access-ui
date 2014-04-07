@@ -44,4 +44,3 @@ while (list($k, $v) = each($content)) {
             break;
     }
 }
-?>

@@ -30,5 +30,4 @@ $usage->verify();
 $appl = new Application();
 $appl->Set("ACCESS", $core);
 
-download($action)
-?>
+download($action);

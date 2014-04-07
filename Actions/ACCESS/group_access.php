@@ -10,4 +10,3 @@ function group_access(Action & $action)
 {
     user_access($action, "G");
 }
-?>
