@@ -10,4 +10,3 @@ function role_access(Action & $action)
 {
     user_access($action, "R");
 }
-?>

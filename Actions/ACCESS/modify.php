@@ -74,4 +74,3 @@ function modify_app(Action & $action)
     
     header('Content-type: application/json');
 }
-?>

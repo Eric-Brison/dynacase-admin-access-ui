@@ -67,4 +67,3 @@ function appl_access(Action & $action, $oid = 0)
     $action->lay->set("imgaccounttype", $action->parent->getImageLink("access.gif", true, 18));
     $action->lay->set("valueaccounttype", "");
 }
-?>
