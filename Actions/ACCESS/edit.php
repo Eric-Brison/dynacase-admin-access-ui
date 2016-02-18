@@ -42,7 +42,7 @@ function edit(Action & $action)
     $action->lay->Set("modifyact", "MODIFY");
     $action->lay->Set("target", "fbody");
     // write title : user name
-    $user = new Account($action->GetParam("CORE_DB") , $userId);
+    $user = new Account($action->dbaccess, $userId);
     switch ($user->accounttype) {
         case "U":
             $action->lay->set("accountLabel", _("User"));

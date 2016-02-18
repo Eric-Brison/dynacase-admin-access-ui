@@ -24,28 +24,24 @@ include_once ("FDL/freedom_util.php");
 // -----------------------------------
 function download(Action & $action)
 {
-    // -----------------------------------
-    $dbaccess_freedom = $action->getParam('FREEDOM_DB');
-    $dbaccess_core = $action->getParam('CORE_DB');
-    
     $cache = array(
         'app' => array() ,
         'acl' => array() ,
         'user' => array()
     );
     
-    $q = new QueryDb($dbaccess_core, "permission");
+    $q = new QueryDb($action->dbaccess, "permission");
     $aclList = $q->query(0, 0, "TABLE", sprintf("SELECT id_user, id_application, id_acl FROM permission WHERE computed IS NULL OR computed = FALSE;"));
     
     $aclExport = array();
     foreach ($aclList as $k => & $el) {
-        $app_name = getApplicationNameFromId($dbaccess_core, $el['id_application'], $cache);
+        $app_name = getApplicationNameFromId($action->dbaccess, $el['id_application'], $cache);
         if ($app_name === null) {
             error_log(__CLASS__ . "::" . __FUNCTION__ . " " . sprintf("Unknown name for application with id '%s'", $el['id_application']));
             continue;
         }
         
-        $acl_name = getAclNameFromId($dbaccess_core, $el['id_acl'], $cache);
+        $acl_name = getAclNameFromId($action->dbaccess, $el['id_acl'], $cache);
         if ($acl_name === null) {
             error_log(__CLASS__ . "::" . __FUNCTION__ . " " . sprintf("Uknown name for acl with id '%s'", $el['id_acl']));
             continue;
@@ -54,12 +50,12 @@ function download(Action & $action)
             $acl_name = sprintf("-%s", $acl_name);
         }
         // Try to fetch the logical name of id_user
-        $user_fid = getUserFIDFromWID($dbaccess_core, $el['id_user'], $cache);
+        $user_fid = getUserFIDFromWID($action->dbaccess, $el['id_user'], $cache);
         if ($user_fid === null) {
             error_log(__CLASS__ . "::" . __FUNCTION__ . " " . sprintf("Unknown fid for user with wid '%s'", $el['id_user']));
             continue;
         }
-        $user_name = getNameFromId($dbaccess_freedom, $user_fid);
+        $user_name = getNameFromId($action->dbaccess, $user_fid);
         // If there is no logical name, then keep the core id (id_user)
         if ($user_name == "") {
             $user_name = $el['id_user'];
@@ -177,4 +173,3 @@ function getUserFIDFromWID($dbaccess, $wid, &$cache)
     
     return $fid;
 }
-?>
