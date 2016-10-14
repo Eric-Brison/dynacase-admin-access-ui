@@ -1,0 +1,88 @@
+/* Token Access */
+
+.dataTables_wrapper .dataTables_paginate {
+    float:none;
+}
+
+.token-id {
+    font-family: monospace;
+    width:23em ;
+}
+.token-id input {
+    width:100%;
+    font-family: monospace;
+    padding: 2px 2px;
+}
+
+.token-expandable input {
+    width:3em;
+}
+
+table.token thead th {
+    text-align: left;
+    font-weight: normal;
+}
+input[type=text].ui-button {
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    outline: none;
+    cursor: text;
+    background: none;
+}
+
+input[type=text].ui-button:focus {
+    border: 1px solid #8D81EC;
+    background: none;
+    color: inherit;
+}
+
+table.token tbody tr:hover {
+    background-color: #e7e7e7;
+}
+
+.token-expired {
+    color:red;
+}
+
+.token-button {
+    width:1em;
+}
+.token-button a.ui-button {
+    padding: 2px 8px;
+}
+.token-expire  {
+    width:10em;
+}
+.token-expendable  {
+    width:30px;
+}
+table.dataTable tbody tr.token-to-delete {
+    animation: token-blinker 3s linear infinite;
+}
+
+
+@keyframes token-blinker {
+    50% {  background-color:red}
+}
+form.token-form-add {
+    border:solid 1px grey;
+    background-color: #f1f1f1;
+    display: inline-block;
+    padding:3px;
+    margin:5px;
+}
+form.token-form-add label {
+    display:block;
+}
+form.token-form-add .token-add {
+    float: right;
+}
+form.token-form-add label span.label{
+    width:10em;
+    text-align: right;
+    display:inline-block;
+    vertical-align: top;
+    padding:3px;
+    margin-right:5px;
+}

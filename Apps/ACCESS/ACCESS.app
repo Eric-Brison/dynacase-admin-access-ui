@@ -61,6 +61,25 @@ $action_desc = array(
         "short_name" => N_("Application Access")
     ),
     array(
+        "name" => "TOKEN_ACCESS",
+
+        "toc_order" => 2,
+        "toc" => "Y",
+        "acl" => "ADMIN",
+        "short_name" => N_("Token Access"),
+        "layout" => "token_access.html"
+    ),
+    array(
+        "name" => "TOKEN_DATA",
+        "acl" => "ADMIN",
+        "short_name" => N_("Token Data")
+    ),
+    array(
+        "name" => "TOKEN_METHOD",
+        "acl" => "ADMIN",
+        "short_name" => N_("Token Methods")
+    ),
+    array(
         "name" => "MODIFY",
         "acl" => "ADMIN",
         "short_name" => N_("Modify any access")

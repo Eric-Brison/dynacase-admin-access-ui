@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[TEXT:Token access]</title>
+    [CSS:CUSTOMREF]
+    [JS:REF]
+</head>
+    <body>
+        <table class="token">
+            <thead>
+            <tr>
+                <th></th>
+                <th>[TEXT:accesstoken:token]</th>
+                <th>[TEXT:accesstoken:user]</th>
+                <th class="token-date">[TEXT:accesstoken:date]</th>
+                <th class="token-expandable">[TEXT:accesstoken:expandable]</th>
+                <th>[TEXT:accesstoken:context]</th>
+            </tr>
+            </thead>
+
+        </table>
+
+        <div style="display:none" data-close="[TEXT:Cancel]" data-confirm="[TEXT:Confirm token deletion]"
+             id="token-deletion-confirm" title="[TEXT:Token Deletion]">
+            <p><span class="ui-icon ui-icon-alert" ></span>
+                <span>[TEXT:Delete token. Are you sure ?]</span></p>
+        </div>
+
+        <form class="token-form-add">
+            <label><span class="label">[TEXT:accesstoken:user] : </span>
+                <input type="text" name="user"/></label>
+            <label><span class="label">[TEXT:accesstoken:date] :</span>
+                <input type="date" value="2016-12-11"/>
+                <input type="time" value="23:59"/>
+                </label>
+            <label><span class="label">[TEXT:accesstoken:expandable] :</span>
+            <select><option value="one">[TEXT:accesstoken:One shot]</option>
+                <option value="always">[TEXT:accesstoken:Always]</option>
+            </select></label>
+            <label><span class="label">[TEXT:accesstoken:context] : </span>
+                <textarea></textarea></label>
+            <a class="token-add" />
+        </form>
+    </body>
+</html>
