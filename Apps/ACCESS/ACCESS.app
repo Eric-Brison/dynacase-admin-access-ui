@@ -63,7 +63,7 @@ $action_desc = array(
     array(
         "name" => "TOKEN_ACCESS",
 
-        "toc_order" => 2,
+        "toc_order" => 5,
         "toc" => "Y",
         "acl" => "ADMIN",
         "short_name" => N_("Token Access"),
@@ -73,6 +73,11 @@ $action_desc = array(
         "name" => "TOKEN_DATA",
         "acl" => "ADMIN",
         "short_name" => N_("Token Data")
+    ),
+    array(
+        "name" => "TOKEN_USERDATA",
+        "acl" => "ADMIN",
+        "short_name" => N_("Token User Data")
     ),
     array(
         "name" => "TOKEN_METHOD",
@@ -95,7 +100,7 @@ $action_desc = array(
     array(
         "name" => "IMPORT_EXPORT",
         "toc" => "Y",
-        "toc_order" => 5,
+        "toc_order" => 6,
         "acl" => "ADMIN",
         "short_name" => N_("Import/Export")
     ),

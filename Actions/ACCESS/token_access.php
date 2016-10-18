@@ -4,6 +4,7 @@ function token_access(Action & $action)
     $action->parent->addJsRef("lib/jquery/1.7.2/jquery.js");
     $action->parent->addJsRef("lib/jquery-ui-1.12.0/jquery-ui.js");
     $action->parent->addJsRef("lib/jquery-dataTables/1.10/js/jquery.dataTables.js");
+    $action->parent->addJsRef("ACCESS/Layout/jquery-ui-combo.js");
     $action->parent->addJsRef("ACCESS/Layout/token_access.js");
     
     $action->parent->addCssRef("WHAT/Layout/size-normal.css");

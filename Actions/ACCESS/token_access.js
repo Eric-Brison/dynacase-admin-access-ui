@@ -4,6 +4,8 @@ $(document).ready(function ()
     "use strict";
 
     var $token = $('.token');
+    var tokenTable;
+    var lang = $(".token-form-add").attr("lang");
 
     // Setup - add a text input to each footer cell
     $('.token thead th').each(function ()
@@ -18,8 +20,9 @@ $(document).ready(function ()
         "icon": "ui-icon-circle-plus"
     }).on("click", function ()
     {
-        $(this).hide();
-        $(".token-form-add").show("slow");
+        $(".token-form-add").dialog({
+            width: "auto"
+        });
     });
 
     $(".token-add-key").button({
@@ -35,19 +38,25 @@ $(document).ready(function ()
 
     $token.dataTable({
 
-        "dom": 'i<"ui-state-default attributesHeader"p>er',
+        "dom": 'i<"token-header-add"><"token-header-nav"p>er',
         "paging": true,
+        "pageLength": 20,
         "ordering": false,
         "autoWidth": false,
         "heigth": "200px",
         "language": {
-            "search": ""
+            url: (lang === "fr") ? "ACCESS/Layout/token_fr.js" : "ACCESS/Layout/token_en.js"
         },
         processing: true,
         serverSide: true,
         ajax: {
             url: "?app=ACCESS&action=TOKEN_DATA",
-            type: "POST"
+            type: "POST",
+            data: function (d)
+            {
+                d.showExpired = $("#ctoken-expired").attr("checked") === "checked";
+                return d;
+            }
         },
         columns: [
             { data: 'button', "class": "token-button" },
@@ -57,6 +66,35 @@ $(document).ready(function ()
             { data: 'expendable', "class": "token-expendable" },
             { data: 'context', "class": "token-context" }
         ],
+        "initComplete": function (settings)
+        {
+            $(".token-header-add").append($(".token-header"));
+            $(".dataTables_wrapper").addClass("ui-state-default");
+            $("#ctoken-expired").checkboxradio().on("click", function ()
+            {
+                tokenTable.draw();
+            });  // Apply the search
+            tokenTable.columns().eq(0).each(function (colIdx)
+            {
+                $('input', tokenTable.column(colIdx).header()).on('keypress', function (e)
+                {
+                    if (e.keyCode === 13) {
+                        tokenTable.column(colIdx)
+                            .search(this.value)
+                            .draw();
+                    }
+                }).on("change", function ()
+                {
+                    tokenTable.column(colIdx)
+                        .search(this.value);
+                });
+            });
+            $(".token th input, .token-form-add input").addClass("ui-button ui-widget");
+            $(".token-form-add button").button();
+
+            settings.oInit.customExpired(settings);
+
+        },
         "drawCallback": function (settings)
         {
             // Add delete button
@@ -64,6 +102,9 @@ $(document).ready(function ()
                 icon: "ui-icon-trash",
                 "classes": { "ui-button": "token-delete" }
             });
+
+            settings.oInit.customExpired(settings);
+
         },
         "rowCallback": function (row, data)
         {
@@ -74,32 +115,31 @@ $(document).ready(function ()
             if (data.token === $token.data("addedToken")) {
                 $(row).addClass("token-added");
             }
-        }
-    });
-    var tokenTable = $token.DataTable();
-    // Apply the search
+        },
+        "customExpired": function (settings) {
+            var $cexpire=$("#ctoken-expired");
 
-
-    // Apply the search
-    tokenTable.columns().eq(0).each(function (colIdx)
-    {
-        $('input', tokenTable.column(colIdx).header()).on('keypress', function (e)
-        {
-            if (e.keyCode === 13) {
-                tokenTable
-                    .column(colIdx)
-                    .search(this.value)
-                    .draw();
+            if ($cexpire.data("uiCheckboxradio")) {
+                if (settings.json.expireCount > 0) {
+                    $cexpire.checkboxradio("enable");
+                } else {
+                    $cexpire.checkboxradio("disable");
+                }
+                $(".token-expired-count").text(settings.json.expireCount);
             }
-        });
+        }
+
     });
-    $(".token th input").button();
-    $(".token-form-add input, .token-form-add button").button();
+    tokenTable = $token.DataTable();
+    // Apply the search
+
+
     $(".token-add").button({
         "icon": "ui-icon-circle-plus"
     }).button("disable").on("click", function ()
     {
         $(".token-form-add").submit();
+        $(this).button("disable"); // Prevent double click
     });
 
     $token.on("click", ".token-delete", function ()
@@ -191,6 +231,9 @@ $(document).ready(function ()
                     }
                 });
             }
+
+            $(".token-form-add").dialog("close");
+            $(".token-add").button("enable");
         }).fail(function (response)
         {
             var $div = $('<div/>');
@@ -216,7 +259,10 @@ $(document).ready(function ()
         } else {
             $(".token-add").button("disable");
         }
+    }).combobox({
+        source: "?app=ACCESS&action=TOKEN_USERDATA"
     });
+
 
     $(".lastToken").hide();
 
@@ -261,7 +307,7 @@ $(document).ready(function ()
                 yearSuffix: ""
             };
 
-            if ($(".token-form-add").attr("lang") === "fr") {
+            if (lang === "fr") {
                 $(this).datepicker(datepickerFr);
             } else {
                 $(this).datepicker({
@@ -276,4 +322,6 @@ $(document).ready(function ()
             $(this).attr("maxlength", 5);
         }
     });
+
+
 });

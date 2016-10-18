@@ -116,7 +116,56 @@ input[name=expiretime] {
     background-color:#A3ECB0;
 }
 
-.token-infinity {
+.ui-widget button.token-infinity {
     font-size: 23px;
     padding: 0 5px;
+}
+.token-header-nav {
+    float:right;
+    display:inline-block;
+}
+.token-header-add {
+    display:inline-block;;
+    margin-top: 2px;
+    margin-left: 2em;
+}
+
+.dataTables_wrapper.no-footer {
+    padding: 3px;
+    border-radius: 3px;
+}
+
+.ui-widget-overlay {
+    opacity: .2;
+}
+
+.custom-combobox a.ui-button {
+    padding:1em;
+    border-left: 0;
+}
+.custom-combobox input.ui-button {
+    margin:0;
+    width: calc(100% - 4.6em);
+    height: 1.2em;
+}
+
+.ui-state-active .ui-icon {
+  background-image: url("../../lib/jquery-ui-1.12.0/images/ui-icons_555555_256x240.png");
+}
+.ui-visual-focus, a.ui-button:focus {
+    box-shadow: 0 0 1px 1px rgb(37, 153, 255);
+    border: solid 1px white;
+}
+.dataTables_info {
+     min-width: 30em;
+ }
+
+ul.ui-autocomplete {
+    overflow-y:auto;
+    overflow-x:hidden;
+    max-height: 150px;
+}
+
+input.ui-button {
+    border-radius:3px;
 }

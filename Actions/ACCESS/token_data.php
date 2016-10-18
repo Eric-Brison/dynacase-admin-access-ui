@@ -6,6 +6,7 @@ function token_data(Action & $action)
     $columns = $usage->addOptionalParameter("columns", "columns description");
     $start = $usage->addOptionalParameter("start", "columns description");
     $length = $usage->addOptionalParameter("length", "columns description");
+    $showExpired = ($usage->addOptionalParameter("showExpired", "view expire", array("true","false"), "true")==="true");
     
     $err = "";
     $data = [];
@@ -13,14 +14,25 @@ function token_data(Action & $action)
     $expendableTrue=___("Once", "accesstoken");
     $expendableFalse=___("Multiple", "accesstoken");
     $q = new QueryDb($action->dbaccess, "UserToken");
+    if (! $showExpired) {
+        $q->addQuery("expire > now()");
+    }
+
     $q->order_by = "expire, userid, token";
     foreach ($columns as $col) {
         $colName = $col["data"];
         if ($col["searchable"] === "true") {
+            $col["search"]["value"]=trim($col["search"]["value"]);
             if (!empty($col["search"]["value"])) {
                 if ($colName === "user") {
                     simpleQuery($action->dbaccess, sprintf("select id from users where login ~ '%s'", pg_escape_string($col["search"]["value"])) , $userIds, true, false);
-                    $q->addQuery(sprintf("userid in (%s)", implode(",", $userIds)));
+                    if ($userIds) {
+                        $q->addQuery(
+                            sprintf("userid in (%s)", implode(",", $userIds))
+                        );
+                    } else {
+                        $q->addQuery("false");
+                    }
                 } else if ($colName === "expendable") {
                     if (strtolower($col["search"]["value"][0]) === strtolower($expendableTrue[0])) {
                         $q->addQuery(sprintf("%s", $colName));
@@ -42,6 +54,7 @@ function token_data(Action & $action)
             $context = unserialize($tokenRow["context"]);
             if (is_array($context)) {
                 $tContext = [];
+                ksort($context);
                 foreach ($context as $k => $v) {
                     $tContext[] = sprintf("<span><b>%s</b>&nbsp;:&nbsp;<i>%s</i></span>", $k, $v);
                 }
@@ -59,7 +72,7 @@ function token_data(Action & $action)
         }
         $now = date("Y-m-d H:i:s");
         foreach ($data as & $row) {
-            $row["user"] = $userLogin[$row["userid"]];
+            $row["user"] = empty($userLogin[$row["userid"]])?"INVALID ".$row["userid"]:$userLogin[$row["userid"]];
             $row["hasExpired"] = ($row["expire"] < $now);
         }
     }
@@ -70,12 +83,27 @@ function token_data(Action & $action)
         header("HTTP/1.0 400 Error");
         $response = ["success" => false, "error" => $err];
     } else {
-        simpleQuery($action->dbaccess, "select count(*) from usertoken", $total, true, true);
+
+        if ($showExpired) {
+            simpleQuery(
+                $action->dbaccess, "select count(*) from usertoken", $total,
+                true, true
+            );
+        } else {
+            simpleQuery(
+                $action->dbaccess, "select count(*) from usertoken where expire > now()", $total,
+                true, true
+            );
+        }
+        simpleQuery(
+            $action->dbaccess, "select count(*) from usertoken where expire < now()", $totalExpire,
+            true, true
+        );
         $all = $q->Query(0, 0, "TABLE");
         if ($q->nb === 0) {
             $all = [];
         }
-        $response = ["recordsTotal" => intval($total) , "recordsFiltered" => count($all) , //intval($total) ,
+        $response = ["recordsTotal" => intval($total) , "recordsFiltered" => count($all) , "expireCount"=>intval($totalExpire) ,
         "data" => $data];
     }
     $action->lay->noparse = true;

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 15:18+0200\n"
-"PO-Revision-Date: 2016-10-17 15:18+0200\n"
+"POT-Creation-Date: 2016-10-18 14:13+0200\n"
+"PO-Revision-Date: 2016-10-18 15:18+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -38,7 +38,7 @@ msgid "Admin Access"
 msgstr "Accès administrateur"
 
 msgid "Application Access"
-msgstr "par applications"
+msgstr "Par applications"
 
 msgid "Application filter"
 msgstr "Filtrer les applications"
@@ -75,7 +75,7 @@ msgstr ""
 "rôles"
 
 msgid "Group Access"
-msgstr "par groupes"
+msgstr "Par groupes"
 
 msgid "Import/Export"
 msgstr "Import/Export"
@@ -101,6 +101,11 @@ msgstr "Multiple"
 msgid "Negative grant"
 msgstr "Droits négatifs"
 
+#, php-format
+msgctxt "accesstoken"
+msgid "No user match %s"
+msgstr "Aucun utilisateur ne correpond à \"%s\""
+
 msgctxt "accesstoken"
 msgid "Once"
 msgstr "Unique"
@@ -115,7 +120,7 @@ msgid "Role"
 msgstr "Rôle"
 
 msgid "Role Access"
-msgstr "par rôles"
+msgstr "Par rôles"
 
 msgid "Select Application Access"
 msgstr "Application"
@@ -143,6 +148,9 @@ msgstr "Données des clefs d'authentification"
 msgid "Token Methods"
 msgstr "Méthodes de gestion des clefs d'authentification"
 
+msgid "Token User Data"
+msgstr "Liste des utilisateurs"
+
 msgid "Token access"
 msgstr "Clefs d'authentification"
 
@@ -158,7 +166,7 @@ msgid "User %s not exists"
 msgstr "L'utilisateur \"%s\" n'existe pas"
 
 msgid "User Access"
-msgstr "par utilisateurs"
+msgstr "Par utilisateurs"
 
 msgid "What Access Management"
 msgstr "Paramétrage des ACL applications et actions"
@@ -217,7 +225,7 @@ msgid "accesstoken:Add another key"
 msgstr "Ajouter un autre paramètre de contexte"
 
 msgid "accesstoken:Always"
-msgstr "Toujours"
+msgstr "Multiple"
 
 msgid "accesstoken:Cancel"
 msgstr "Annuler"
@@ -237,8 +245,14 @@ msgstr "Dernière clef créée"
 msgid "accesstoken:Never expire"
 msgstr "Pas d'expiration"
 
+msgid "accesstoken:New token"
+msgstr "Nouvelle clef d'authentification"
+
 msgid "accesstoken:One shot"
-msgstr "Une seule fois"
+msgstr "Unique"
+
+msgid "accesstoken:Show expired tokens"
+msgstr "Afficher les clefs expirées"
 
 msgid "accesstoken:Token Deletion"
 msgstr "Suppression de la clef"

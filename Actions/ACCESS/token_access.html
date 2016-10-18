@@ -26,8 +26,13 @@
         <span>[TEXT:accesstoken:Delete token. Are you sure ?]</span></p>
 </div>
 
+<div class="token-header">
 <a class="token-view-createform">[TEXT:accesstoken:Create a new token]</a>
-<form lang="[lang]" class="token-form-add" action="?app=ACCESS&action=TOKEN_METHOD&method=create">
+<label for="ctoken-expired">[TEXT:accesstoken:Show expired tokens] (<span class="token-expired-count"></span>)</label>
+<input type="checkbox"  id="ctoken-expired">
+</div>
+
+<form lang="[lang]" class="token-form-add" title="[TEXT:accesstoken:New token]" action="?app=ACCESS&action=TOKEN_METHOD&method=create">
     <table>
         <tbody>
         <tr>
@@ -88,6 +93,7 @@
     </table>
     <span class="lastToken">[TEXT:accesstoken:Last created token is] : <em class="lastToken--id"></em></span>
     <a class="token-add">[TEXT:accesstoken:Create a new token]</a>
+
 </form>
 </body>
 </html>
