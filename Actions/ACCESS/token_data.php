@@ -9,8 +9,11 @@ function token_data(Action & $action)
     
     $err = "";
     $data = [];
+
+    $expendableTrue=___("Once", "accesstoken");
+    $expendableFalse=___("Multiple", "accesstoken");
     $q = new QueryDb($action->dbaccess, "UserToken");
-    $q->order_by = "expire, token";
+    $q->order_by = "expire, userid, token";
     foreach ($columns as $col) {
         $colName = $col["data"];
         if ($col["searchable"] === "true") {
@@ -19,9 +22,9 @@ function token_data(Action & $action)
                     simpleQuery($action->dbaccess, sprintf("select id from users where login ~ '%s'", pg_escape_string($col["search"]["value"])) , $userIds, true, false);
                     $q->addQuery(sprintf("userid in (%s)", implode(",", $userIds)));
                 } else if ($colName === "expendable") {
-                    if ($col["search"]["value"][0] === 't') {
+                    if (strtolower($col["search"]["value"][0]) === strtolower($expendableTrue[0])) {
                         $q->addQuery(sprintf("%s", $colName));
-                    } elseif ($col["search"]["value"][0] === 'f') {
+                    } elseif (strtolower($col["search"]["value"][0]) === strtolower($expendableFalse[0])) {
                         $q->addQuery(sprintf("(not %s or %s is null)", $colName, $colName));
                     }
                 } else {
@@ -38,7 +41,7 @@ function token_data(Action & $action)
             $userids[] = intval($tokenRow["userid"]);
             $context = unserialize($tokenRow["context"]);
             if (is_array($context)) {
-                $tContext = '';
+                $tContext = [];
                 foreach ($context as $k => $v) {
                     $tContext[] = sprintf("<span><b>%s</b>&nbsp;:&nbsp;<i>%s</i></span>", $k, $v);
                 }
@@ -47,7 +50,7 @@ function token_data(Action & $action)
                 $scontext = $tokenRow["context"];
             }
             
-            $data[] = ["token" => $tokenRow["token"], "userid" => $tokenRow["userid"], "expire" => $tokenRow["expire"], "context" => $scontext, "expendable" => ($tokenRow["expendable"]) ? "true" : "false", "button" => "<a/>"];
+            $data[] = ["token" => $tokenRow["token"], "userid" => $tokenRow["userid"], "expire" => $tokenRow["expire"], "context" => $scontext, "expendable" => ($tokenRow["expendable"]) ? $expendableTrue : $expendableFalse, "button" => "<a/>"];
         }
         simpleQuery($action->dbaccess, sprintf("select id, login from users where id in (%s)", implode(",", array_unique($userids))) , $usersData);
         $userLogin = [];

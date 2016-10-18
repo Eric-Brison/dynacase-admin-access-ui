@@ -12,4 +12,19 @@ function token_access(Action & $action)
     $action->parent->addCssRef("lib/jquery-dataTables/1.10/css/dataTables.jqueryui.css");
     
     $action->parent->addCssRef("ACCESS/Layout/token_access.css");
+
+    simpleQuery($action->dbaccess, "select application.name as appname, action.name as actionname from action, application where action.id_application=application.id and action.openaccess= 'Y' order by application.name, action.name;", $openActions);
+
+
+    $openActionData=[];
+    foreach ($openActions as $openAction) {
+        $openActionData[]=[
+            "openAction"=>sprintf("%s:%s", $openAction["appname"], $openAction["actionname"]),
+            "openActionLabel"=>sprintf("%s:%s", $openAction["appname"], $openAction["actionname"])
+
+        ];
+    }
+    $action->lay->eSetBlockData("OPENACTIONS", $openActionData);
+    $action->lay->eSet("today", date("Y-m-d"));
+    $action->lay->eSet("lang", substr($action->getParam("CORE_LANG"),0,2));
 }

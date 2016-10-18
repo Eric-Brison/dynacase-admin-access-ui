@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-14 11:49+0200\n"
-"PO-Revision-Date: 2016-10-14 11:52+0200\n"
+"POT-Creation-Date: 2016-10-17 15:18+0200\n"
+"PO-Revision-Date: 2016-10-17 15:18+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -17,6 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#, php-format
+msgctxt "access"
+msgid "<p>Token <b>%s</b></br> has been create.</p>"
+msgstr "<p>La clef <b>%s</b></br> a été créée.</p>"
+
+#, php-format
+msgctxt "access"
+msgid "<p>Token <b>%s</b></br> has been deleted.</p>"
+msgstr "<p>La clef <b>%s</b></br> a été suprimée.</p>"
 
 msgid "Access"
 msgstr "Gestion des accessibilités"
@@ -73,14 +83,27 @@ msgstr "Import/Export"
 msgid "Inherited grant"
 msgstr "Droits hérités"
 
+#, php-format
+msgctxt "accessToken"
+msgid "Invalid date \"%s\" for token"
+msgstr "Date \"%s\" invalide pour la création de la clef"
+
 msgid "Modify access"
 msgstr "Modifier les droits d'accès"
 
 msgid "Modify any access"
 msgstr "Modifier n'importe quel objet"
 
+msgctxt "accesstoken"
+msgid "Multiple"
+msgstr "Multiple"
+
 msgid "Negative grant"
 msgstr "Droits négatifs"
+
+msgctxt "accesstoken"
+msgid "Once"
+msgstr "Unique"
 
 msgid "Positive grant"
 msgstr "Droits positifs"
@@ -106,20 +129,33 @@ msgstr "Rôle"
 msgid "Select User Access"
 msgstr "Utilisateur"
 
+#, php-format
+msgctxt "access"
+msgid "Token %s not exists"
+msgstr "La clef \"%s\" n'existe pas"
+
 msgid "Token Access"
 msgstr "Accès aux clefs d'authentification"
 
 msgid "Token Data"
 msgstr "Données des clefs d'authentification"
 
+msgid "Token Methods"
+msgstr "Méthodes de gestion des clefs d'authentification"
+
 msgid "Token access"
-msgstr "clefs d'authentification"
+msgstr "Clefs d'authentification"
 
 msgid "Upload access acl"
 msgstr "Importer un fichier de configuration de droits applicatifs"
 
 msgid "User"
 msgstr "Utilisateur"
+
+#, php-format
+msgctxt "access"
+msgid "User %s not exists"
+msgstr "L'utilisateur \"%s\" n'existe pas"
 
 msgid "User Access"
 msgstr "par utilisateurs"
@@ -177,6 +213,42 @@ msgstr "Contrôle des accès pour"
 msgid "accesss:Close"
 msgstr "Fermer"
 
+msgid "accesstoken:Add another key"
+msgstr "Ajouter un autre paramètre de contexte"
+
+msgid "accesstoken:Always"
+msgstr "Toujours"
+
+msgid "accesstoken:Cancel"
+msgstr "Annuler"
+
+msgid "accesstoken:Confirm token deletion"
+msgstr "Je confirme la suppression de la clef"
+
+msgid "accesstoken:Create a new token"
+msgstr "Créer une nouvelle clef d'authentification"
+
+msgid "accesstoken:Delete token. Are you sure ?"
+msgstr "Suppression de la clef d'authentification. Êtes-vous sûr ?"
+
+msgid "accesstoken:Last created token is"
+msgstr "Dernière clef créée"
+
+msgid "accesstoken:Never expire"
+msgstr "Pas d'expiration"
+
+msgid "accesstoken:One shot"
+msgstr "Une seule fois"
+
+msgid "accesstoken:Token Deletion"
+msgstr "Suppression de la clef"
+
+msgid "accesstoken:User login"
+msgstr "Identifiant utilisateur (login)"
+
+msgid "accesstoken:allapplication"
+msgstr "Toutes actions disponibles"
+
 msgid "accesstoken:context"
 msgstr "Contexte"
 
@@ -184,7 +256,13 @@ msgid "accesstoken:date"
 msgstr "Expiration"
 
 msgid "accesstoken:expandable"
-msgstr "Unitaire"
+msgstr "Usage"
+
+msgid "accesstoken:parameterKey"
+msgstr "Autres arguments"
+
+msgid "accesstoken:parameterValue"
+msgstr "Valeurs"
 
 msgid "accesstoken:token"
 msgstr "Clef"

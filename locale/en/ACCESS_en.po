@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-14 11:49+0200\n"
-"PO-Revision-Date: 2016-10-14 11:53+0200\n"
+"POT-Creation-Date: 2016-10-17 15:18+0200\n"
+"PO-Revision-Date: 2016-10-17 14:23+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -17,6 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#, php-format
+msgctxt "access"
+msgid "<p>Token <b>%s</b></br> has been create.</p>"
+msgstr ""
+
+#, php-format
+msgctxt "access"
+msgid "<p>Token <b>%s</b></br> has been deleted.</p>"
+msgstr ""
 
 msgid "Access"
 msgstr ""
@@ -69,13 +79,26 @@ msgstr ""
 msgid "Inherited grant"
 msgstr ""
 
+#, php-format
+msgctxt "accessToken"
+msgid "Invalid date \"%s\" for token"
+msgstr ""
+
 msgid "Modify access"
 msgstr ""
 
 msgid "Modify any access"
 msgstr ""
 
+msgctxt "accesstoken"
+msgid "Multiple"
+msgstr ""
+
 msgid "Negative grant"
+msgstr ""
+
+msgctxt "accesstoken"
+msgid "Once"
 msgstr ""
 
 msgid "Positive grant"
@@ -102,10 +125,18 @@ msgstr ""
 msgid "Select User Access"
 msgstr ""
 
+#, php-format
+msgctxt "access"
+msgid "Token %s not exists"
+msgstr ""
+
 msgid "Token Access"
 msgstr ""
 
 msgid "Token Data"
+msgstr ""
+
+msgid "Token Methods"
 msgstr ""
 
 msgid "Token access"
@@ -115,6 +146,11 @@ msgid "Upload access acl"
 msgstr ""
 
 msgid "User"
+msgstr ""
+
+#, php-format
+msgctxt "access"
+msgid "User %s not exists"
 msgstr ""
 
 msgid "User Access"
@@ -173,6 +209,42 @@ msgstr "Access control for"
 msgid "accesss:Close"
 msgstr "Close"
 
+msgid "accesstoken:Add another key"
+msgstr "Add another key"
+
+msgid "accesstoken:Always"
+msgstr "Always"
+
+msgid "accesstoken:Cancel"
+msgstr "Cancel"
+
+msgid "accesstoken:Confirm token deletion"
+msgstr "Confirm token deletion"
+
+msgid "accesstoken:Create a new token"
+msgstr "Create a new token"
+
+msgid "accesstoken:Delete token. Are you sure ?"
+msgstr "Delete token. Are you sure ?"
+
+msgid "accesstoken:Last created token is"
+msgstr "Last created token is"
+
+msgid "accesstoken:Never expire"
+msgstr "Never expire"
+
+msgid "accesstoken:One shot"
+msgstr "One shot"
+
+msgid "accesstoken:Token Deletion"
+msgstr "Token Deletion"
+
+msgid "accesstoken:User login"
+msgstr "User login"
+
+msgid "accesstoken:allapplication"
+msgstr "All open actions"
+
 msgid "accesstoken:context"
 msgstr "Context"
 
@@ -181,6 +253,12 @@ msgstr "Expiration"
 
 msgid "accesstoken:expandable"
 msgstr "Single usage"
+
+msgid "accesstoken:parameterKey"
+msgstr "Other context keys"
+
+msgid "accesstoken:parameterValue"
+msgstr "Key value"
 
 msgid "accesstoken:token"
 msgstr "Token"

@@ -8,8 +8,7 @@
     font-family: monospace;
     width:23em ;
 }
-.token-id input {
-    width:100%;
+td.token-id input {
     font-family: monospace;
     padding: 2px 2px;
 }
@@ -22,18 +21,19 @@ table.token thead th {
     text-align: left;
     font-weight: normal;
 }
-input[type=text].ui-button {
+input.ui-button {
     font: inherit;
     color: inherit;
     text-align: left;
     outline: none;
     cursor: text;
-    background: none;
+    background: white;
 }
 
 input[type=text].ui-button:focus {
     border: 1px solid #8D81EC;
-    background: none;
+    background: white;
+
     color: inherit;
 }
 
@@ -57,13 +57,24 @@ table.token tbody tr:hover {
 .token-expendable  {
     width:30px;
 }
+
+table.token.dataTable tbody td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
 table.dataTable tbody tr.token-to-delete {
-    animation: token-blinker 3s linear infinite;
+    animation: token-red-blinker 3s linear infinite;
 }
 
-
-@keyframes token-blinker {
+table.dataTable tbody tr.token-added {
+    animation: token-green-blinker 3s linear infinite;
+}
+@keyframes token-red-blinker {
     50% {  background-color:red}
+}
+@keyframes token-green-blinker {
+    50% {  background-color: #47bc43
+    }
 }
 form.token-form-add {
     border:solid 1px grey;
@@ -72,6 +83,10 @@ form.token-form-add {
     padding:3px;
     margin:5px;
 }
+form.token-form-add select {
+    padding:3px;
+}
+
 form.token-form-add label {
     display:block;
 }
@@ -85,4 +100,23 @@ form.token-form-add label span.label{
     vertical-align: top;
     padding:3px;
     margin-right:5px;
+}
+
+input[name=user] {
+    width:calc(100% - 24px);
+}
+input[name=expiredate] {
+    width:10em;
+}
+input[name=expiretime] {
+    width:5em;
+}
+
+.token-infinity--selected, .token-infinity--selected:focus {
+    background-color:#A3ECB0;
+}
+
+.token-infinity {
+    font-size: 23px;
+    padding: 0 5px;
 }
